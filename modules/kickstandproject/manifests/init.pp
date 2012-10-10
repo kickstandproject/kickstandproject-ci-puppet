@@ -12,6 +12,7 @@ class kickstandproject::init(
   class { 'apt::client': }
   class { 'ntp::server': }
   class { 'ssh::server': }
+  class { 'sudoers::client': }
   class { 'timezone::client': }
 
   class { 'puppet::client':
