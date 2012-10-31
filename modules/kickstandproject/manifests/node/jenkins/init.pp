@@ -27,7 +27,9 @@ class kickstandproject::node::jenkins::init {
     interfaces  => $network_interfaces,
   }
 
-  class { 'jenkins::server': }
+  class { 'jenkins::server':
+    hostname  => 'jenkins.kickstand-project.org',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79
