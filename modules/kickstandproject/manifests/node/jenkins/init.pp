@@ -31,7 +31,13 @@ class kickstandproject::node::jenkins::init {
     hostname  => 'jenkins.kickstand-project.org',
   }
 
-  class { 'jenkins_job_builder::client': }
+  # TODO: Add these settings to hiera
+  class { 'jenkins_job_builder::client':
+    settings => {
+      'password' => 'd363caecb5528e1cef17a7bcecd2f821',
+      'url'      => 'http://jenkins.kickstand-project.org',
+    }
+  }
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79
