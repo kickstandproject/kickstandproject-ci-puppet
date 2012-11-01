@@ -8,7 +8,8 @@ class kickstandproject::node::jenkins::config {
     ensure  => file,
     content =>
       template('kickstandproject/jenkins/etc/jenkins_jobs/configs/defaults.yaml.erb'),
-    require => File[$jenkins_job_builder::params::configdir],
+    notify  => Exec['jenkins-jobs-update']
+    require => Class['jenkins_job_builder::client],
   }
 }
 
