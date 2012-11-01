@@ -4,10 +4,9 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::node::jenkins::config {
-  require jenkins_job_builder::client
-
   file { "${jenkins_job_builder::params::configdir}/defaults.yaml":
     ensure  => file,
+    require => Class['jenkins_job_builder::client'],
     source  => 'puppet:///node/jenkins/etc/jenkins_jobs/configs/defaults.yaml',
   }
 }
