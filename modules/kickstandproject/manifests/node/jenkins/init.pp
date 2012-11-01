@@ -30,6 +30,8 @@ class kickstandproject::node::jenkins::init {
   class { 'jenkins::server':
     hostname  => 'jenkins.kickstand-project.org',
   }
+
+  class { 'jenkins_job_builder::client': }
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79
