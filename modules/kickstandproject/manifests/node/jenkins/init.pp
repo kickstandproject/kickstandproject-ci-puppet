@@ -23,8 +23,6 @@ class kickstandproject::node::jenkins::init {
     stage => 'bootstrap',
   }
 
-  class { 'kickstandproject::node::jenkins::config': }
-
   class { 'network::client':
     interfaces  => $network_interfaces,
   }
@@ -40,6 +38,8 @@ class kickstandproject::node::jenkins::init {
       'url'      => 'http://jenkins.kickstand-project.org',
     }
   }
+
+  class { 'kickstandproject::node::jenkins::config': }
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79
