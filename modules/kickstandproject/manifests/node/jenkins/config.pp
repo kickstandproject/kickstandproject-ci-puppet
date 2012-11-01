@@ -11,6 +11,14 @@ class kickstandproject::node::jenkins::config {
     notify  => Exec['jenkins-jobs-update'],
     require => Class['jenkins_job_builder::client'],
   }
+
+  file { "${jenkins_job_builder::params::configdir}/zuul.yaml":
+    ensure  => file,
+    content =>
+      template('kickstandproject/jenkins/etc/jenkins_jobs/configs/zuul.yaml.erb'),
+    notify  => Exec['jenkins-jobs-update'],
+    require => Class['jenkins_job_builder::client'],
+  }
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79
