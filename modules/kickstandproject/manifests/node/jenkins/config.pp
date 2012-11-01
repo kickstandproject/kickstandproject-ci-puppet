@@ -4,20 +4,14 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::node::jenkins::config {
-  file { "${jenkins_job_builder::params::configdir}/defaults.yaml":
-    ensure  => file,
+  jenkins_job_builder::function::template { 'defaults.yaml':
     content =>
       template('kickstandproject/jenkins/etc/jenkins_jobs/configs/defaults.yaml.erb'),
-    notify  => Exec['jenkins-jobs-update'],
-    require => Class['jenkins_job_builder::client'],
   }
 
-  file { "${jenkins_job_builder::params::configdir}/zuul.yaml":
-    ensure  => file,
+  jenkins_job_builder::function::template { 'zuul.yaml':
     content =>
       template('kickstandproject/jenkins/etc/jenkins_jobs/configs/zuul.yaml.erb'),
-    notify  => Exec['jenkins-jobs-update'],
-    require => Class['jenkins_job_builder::client'],
   }
 }
 
