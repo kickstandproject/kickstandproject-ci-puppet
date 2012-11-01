@@ -4,6 +4,8 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::node::jenkins::config {
+  include jenkins_job_builder::client
+
   file { "${jenkins_job_builder::params::configdir}/defaults.yaml":
     ensure  => file,
     content =>
