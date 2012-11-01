@@ -23,6 +23,8 @@ class kickstandproject::node::jenkins::init {
     stage => 'bootstrap',
   }
 
+  class { 'kickstandproject::node::jenkins::config': }
+
   class { 'network::client':
     interfaces  => $network_interfaces,
   }
