@@ -8,7 +8,7 @@ class kickstandproject::node::jenkins::config {
     ensure  => file,
     content =>
       template('kickstandproject/jenkins/etc/jenkins_jobs/configs/defaults.yaml.erb'),
-    require => Class['jenkins_job_builder::client'],
+    require => File[$jenkins_job_builder::params::configdir],
   }
 }
 
