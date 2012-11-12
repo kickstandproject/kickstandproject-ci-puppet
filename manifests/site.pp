@@ -2,6 +2,10 @@ node 'jenkins-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::jenkins::init': }
 }
 
+node 'puppet-01-prod.kickstand-project.org' {
+  class { 'kickstandproject::node::puppet::init': }
+}
+
 node 'rebuildd-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::rebuildd::init': }
 }
