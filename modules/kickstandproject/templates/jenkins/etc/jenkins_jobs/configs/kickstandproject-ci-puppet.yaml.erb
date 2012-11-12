@@ -1,0 +1,13 @@
+- job:
+    name: gate-ci-puppet-lint
+    node: precise
+
+    triggers:
+      - zuul
+
+    builders:
+      - gerrit-git-prep
+      - shell: "rake lint"
+
+    publishers:
+      - console-log
