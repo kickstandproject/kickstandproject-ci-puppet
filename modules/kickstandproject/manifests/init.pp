@@ -6,8 +6,8 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::init(
-  $environment    = 'production',
-  $puppet_server  = 'puppet-01-prod.polybeacon.com'
+  $environment   = 'production',
+  $puppet_server = 'puppet-01-prod'
 ) {
   class { 'apt::client': }
   class { 'ntp::server': }
