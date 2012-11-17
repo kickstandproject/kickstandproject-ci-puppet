@@ -1,3 +1,7 @@
+node 'gerrit-01-prod.kickstand-project.org' {
+  class { 'kickstandproject::node::precise::init': }
+}
+
 node 'jenkins-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::jenkins::init': }
 }
