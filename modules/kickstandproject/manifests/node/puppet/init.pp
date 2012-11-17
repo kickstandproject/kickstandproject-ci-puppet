@@ -7,11 +7,9 @@ class kickstandproject::node::puppet::init {
   $network_interfaces = {
     'eth0' => {
       'method'          => 'static',
-      'address'         => '209.87.230.44',
-      'netmask'         => '255.255.255.248',
-      'network'         => '209.87.230.40',
-      'broadcast'       => '209.87.230.47',
-      'gateway'         => '209.87.230.41',
+      'address'         => '209.87.247.148',
+      'netmask'         => '255.255.255.240',
+      'gateway'         => '209.87.247.145',
       'dns-nameservers' => '8.8.8.8',
       'dns-search'      => 'kickstand-project.org',
     },
