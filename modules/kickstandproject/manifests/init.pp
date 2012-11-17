@@ -22,7 +22,7 @@ class kickstandproject::init(
     }
   }
 
-  host { $::hostname:
+  host { $::fqdn:
     ensure => absent,
   }
 }
