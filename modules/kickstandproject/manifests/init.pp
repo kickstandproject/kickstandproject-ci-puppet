@@ -21,6 +21,10 @@ class kickstandproject::init(
       'server'      => $puppet_server,
     }
   }
+
+  host { $::hostname:
+    ensure => absent,
+  }
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79
