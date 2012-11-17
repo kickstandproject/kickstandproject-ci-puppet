@@ -7,7 +7,7 @@
 #
 class kickstandproject::init(
   $environment   = 'production',
-  $puppet_server = 'puppet-01-prod'
+  $puppet_server = 'puppet-01-prod.kickstand-project.org'
 ) {
   class { 'apt::client': }
   class { 'ntp::server': }
