@@ -26,7 +26,10 @@ class kickstandproject::node::puppet::init {
   }
 
   class { 'puppet::server':
-    options => {
+    autosign => [
+      '*.kickstand-project.org',
+    ],
+    options  => {
       'modulepath' => '/opt/puppet-modules/$environment/modules:/etc/puppet/modules',
     }
   }
