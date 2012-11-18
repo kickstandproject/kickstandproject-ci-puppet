@@ -32,7 +32,7 @@ class kickstandproject::node::jenkins::init {
   # TODO: Add these settings to hiera
   class { 'jenkins_job_builder::client':
     settings => {
-      'password' => 'd363caecb5528e1cef17a7bcecd2f821',
+      'password' => '09933c495f8476a6f021ce7865ad96a8',
       'url'      => 'http://jenkins.kickstand-project.org',
     }
   }
