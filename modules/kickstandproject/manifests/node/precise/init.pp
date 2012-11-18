@@ -24,6 +24,10 @@ class kickstandproject::node::precise::init {
   class { 'network::client':
     interfaces  => $network_interfaces,
   }
+
+  class { 'jenkins::client':
+    url => 'http://jenkins-01-prod',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79
