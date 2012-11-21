@@ -27,7 +27,7 @@ class kickstandproject::node::gerrit::init {
 
   class { 'mysql::server': }
 
-  class { 'kickstandproject::node::gerrit::config':
+  class { 'kickstandproject::node::gerrit::config': }
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79
