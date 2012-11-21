@@ -26,6 +26,10 @@ class kickstandproject::node::gerrit::init {
   }
 
   class { 'mysql::server': }
+
+  mysql::function::database { 'reviewdb': }
+
+  mysql::function::user { 'gerrit2': }
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79
