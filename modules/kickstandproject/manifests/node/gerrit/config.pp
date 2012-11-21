@@ -4,10 +4,10 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::node::gerrit::config {
-  mysql::function::database { 'reviewdb': }
-
-  mysql::function::user { 'gerrit2':
-    password => 'secret',
+  mysql::db { 'reviewdb':
+    charset   => 'latin1',
+    password  => 'secret',
+    user      => 'gerrit2',
   }
 }
 
