@@ -4,6 +4,8 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::node::gerrit::config {
+  class { 'git::client': }
+
   mysql::db { 'reviewdb':
     charset   => 'latin1',
     password  => 'secret',
