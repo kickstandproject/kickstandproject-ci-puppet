@@ -22,14 +22,16 @@ class kickstandproject::node::gerrit::init {
   }
 
   class { 'network::client':
-    interfaces  => $network_interfaces,
+    interfaces => $network_interfaces,
   }
 
   class { 'mysql::server': }
 
   mysql::function::database { 'reviewdb': }
 
-  mysql::function::user { 'gerrit2': }
+  mysql::function::user { 'gerrit2':
+    password => 'secret',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab:textwidth=79
