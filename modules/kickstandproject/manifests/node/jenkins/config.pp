@@ -14,9 +14,11 @@ class kickstandproject::node::jenkins::config {
 
   # TODO: Move into kickstandproject-zuul
   user { 'zuul':
-    ensure => present,
-    home   => '/var/lib/zuul',
-    system => true,
+    ensure     => present,
+    home       => '/var/lib/zuul',
+    managehome => true,
+    shell      => '/bin/false',
+    system     => true,
   }
 }
 
