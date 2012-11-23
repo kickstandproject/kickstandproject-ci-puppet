@@ -12,6 +12,10 @@ class kickstandproject::node::jenkins::config {
     content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/kickstandproject-ci-puppet.yaml.erb'),
   }
 
+  jenkins_job_builder::function::template { 'projects.yaml':
+    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/projects.yaml.erb'),
+  }
+
   # TODO: Move into kickstandproject-zuul
   user { 'zuul':
     ensure     => present,
