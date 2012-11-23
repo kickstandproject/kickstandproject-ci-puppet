@@ -1,0 +1,13 @@
+- job-template:
+    name: 'gate-{name}-merge'
+
+    triggers:
+      - zuul
+
+    builders:
+      - gerrit-git-prep
+
+    publishers:
+      - console-log
+
+    node: '{node}'
