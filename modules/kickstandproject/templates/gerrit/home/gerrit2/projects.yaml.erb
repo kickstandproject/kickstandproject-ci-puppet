@@ -1,0 +1,15 @@
+- homepage: http://kickstand-project.org
+  local-git-dir: /home/gerrit2/tmp/git
+  gerrit-host: review.kickstand-project.org
+  gerrit-user: captpants
+  gerrit-key: /home/gerrit2/.ssh/id_rsa
+  github-config: /home/gerrit2/github-config
+  has-wiki: False
+  has-issues: False
+  has-pull-request: False
+  has-downloads: False
+---
+- project: kickstandproject/kickstandproject-puppet
+  acl_config: /home/gerrit2/acls/kickstandproject/kickstandproject-puppet.config
+- project: kickstandproject/kickstandproject-ci-puppet
+  acl_config: /home/gerrit2/acls/kickstandproject/kickstandproject-ci-puppet.config

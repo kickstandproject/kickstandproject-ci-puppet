@@ -15,6 +15,11 @@ class kickstandproject::node::gerrit::config {
   apache::function::virtualhost-proxy { 'review.kickstand-project.org':
     port => '8080',
   }
+
+  # TODO: Move this into gerritx project
+  file { '/home/gerrit2/projects.yaml':
+    content => template('kickstandproject/gerrit/home/gerrit2/projects.yaml'),
+  }
 }
 
-# vim:sw=2:ts=2:expandtab:textwidth=79
+# vim:sw=2:ts=2:expandtab
