@@ -51,11 +51,11 @@ jobs:
 projects:
   - name: kickstandproject/kickstandproject-puppet
     check:
-      - gate-ci-puppet-merge:
-        - gate-ci-puppet-lint
+      - gate-kickstandproject-puppet-merge:
+        - gate-kickstandproject-puppet-puppetlint
     gate:
-      - gate-ci-puppet-merge:
-        - gate-ci-puppet-lint
+      - gate-kickstandproject-puppet-merge:
+        - gate-kickstandproject-puppet-puppetlint
 
   - name: kickstandproject/kickstandproject-ci-puppet
     check:
