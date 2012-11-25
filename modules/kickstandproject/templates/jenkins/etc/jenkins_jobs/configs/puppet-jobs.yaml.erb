@@ -12,3 +12,10 @@
       - console-log
 
     node: '{node}'
+
+
+- job-group:
+    name: puppet-jobs
+    jobs:
+      - 'gate-{name}-merge'
+      - 'gate-{name}-puppetlint'
