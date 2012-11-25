@@ -2,3 +2,8 @@
     name: gerrit-git-prep
     builders:
       - shell: "/usr/local/jenkins/slave_scripts/gerrit-git-prep.sh review.kickstand-project.org"
+
+- builder:
+    name: puppet-lint
+    builders:
+      - shell: "rake lint"

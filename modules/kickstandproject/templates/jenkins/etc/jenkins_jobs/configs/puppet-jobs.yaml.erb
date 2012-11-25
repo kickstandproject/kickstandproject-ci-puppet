@@ -1,13 +1,14 @@
-- job:
+- job-template:
     name: 'gate-{name}-puppetlint'
-    node: precise
 
     triggers:
       - zuul
 
     builders:
       - gerrit-git-prep
-      - shell: "rake lint"
+      - puppet-lint
 
     publishers:
       - console-log
+
+    node: '{node}'
