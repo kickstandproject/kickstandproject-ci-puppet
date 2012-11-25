@@ -32,6 +32,11 @@ class kickstandproject::node::jenkins::config {
     shell      => '/bin/false',
     system     => true,
   }
+
+  # TODO: Move this into kickstandproject-zuul
+  file { '/etc/zuul/layout.yaml':
+    content => template('kickstandproject/jenkins/etc/zuul/layout.yaml.erb'),
+  }
 }
 
-# vim:sw=2:ts=2:expandtab:textwidth=79
+# vim:sw=2:ts=2:expandtab

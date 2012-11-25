@@ -1,0 +1,66 @@
+pipelines:
+  - name: check
+    manager: IndependentPipelineManager
+    trigger:
+      - event: patchset-created
+      - event: comment-added
+        comment_filter: (?i)^\s*recheck\.?\s*$
+    success:
+      verified: 1
+    failure:
+      verified: -1
+
+  - name: gate
+    manager: DependentPipelineManager
+    trigger:
+      - event: comment-added
+        approval:
+          - approved: 1
+      - event: comment-added
+        comment_filter: (?i)^\s*reverify\.?\s*$
+    start:
+      verified: 0
+    success:
+      verified: 2
+      submit: true
+    failure:
+      verified: -2
+
+  - name: post
+    manager: IndependentPipelineManager
+    trigger:
+      - event: ref-updated
+        ref: ^(?!(devnull|refs/.*)).*$
+
+  - name: publish
+    manager: IndependentPipelineManager
+    trigger:
+      - event: ref-updated
+        ref: ^refs/tags/.*$
+
+  - name: silent
+    manager: IndependentPipelineManager
+    trigger:
+      - event: patchset-created
+
+jobs:
+  - name: ^.*-merge$
+    failure-message: This change was unable to be automatically merged with the current state of the repository. Please rebase your change and upload a new patchset.
+  - name: gate-ci-puppet-lint
+
+projects:
+  - name: kickstandproject/kickstandproject-puppet
+    check:
+      - gate-ci-puppet-merge:
+        - gate-ci-puppet-lint
+    gate:
+      - gate-ci-puppet-merge:
+        - gate-ci-puppet-lint
+
+  - name: kickstandproject/kickstandproject-ci-puppet
+    check:
+      - gate-ci-puppet-merge:
+        - gate-ci-puppet-lint
+    gate:
+      - gate-ci-puppet-merge:
+        - gate-ci-puppet-lint
