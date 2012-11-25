@@ -18,7 +18,7 @@ class kickstandproject::node::gerrit::config {
 
   # TODO: Move this into gerritx project
   file { '/home/gerrit2/projects.yaml':
-    content => template('kickstandproject/gerrit/home/gerrit2/projects.yaml'),
+    content => template('kickstandproject/gerrit/home/gerrit2/projects.yaml.erb'),
   }
 }
 
