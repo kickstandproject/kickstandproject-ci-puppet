@@ -14,8 +14,24 @@
     node: '{node}'
 
 
+- job-template:
+    name: 'gate-{name}-puppet-syntax'
+
+    triggers:
+      - zuul
+
+    builders:
+      - gerrit-git-prep
+      - puppet-syntax
+
+    publishers:
+      - console-log
+
+    node: '{node}'
+
 - job-group:
     name: puppet-jobs
     jobs:
       - 'gate-{name}-merge'
+      - 'gate-{name}-puppet-syntax'
       - 'gate-{name}-puppetlint'
