@@ -51,15 +51,19 @@ projects:
   - name: kickstandproject/kickstandproject-puppet
     check:
       - gate-kickstandproject-puppet-merge:
+        - gate-kickstandproject-puppet-puppet-syntax
         - gate-kickstandproject-puppet-puppetlint
     gate:
       - gate-kickstandproject-puppet-merge:
+        - gate-kickstandproject-puppet-puppet-syntax
         - gate-kickstandproject-puppet-puppetlint
 
   - name: kickstandproject/kickstandproject-ci-puppet
     check:
       - gate-ci-puppet-merge:
+        - gate-ci-puppet-puppet-syntax
         - gate-ci-puppet-puppetlint
     gate:
       - gate-ci-puppet-merge:
+        - gate-ci-puppet-puppet-syntax
         - gate-ci-puppet-puppetlint
