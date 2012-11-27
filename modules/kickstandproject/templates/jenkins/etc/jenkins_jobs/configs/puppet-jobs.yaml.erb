@@ -1,5 +1,5 @@
 - job-template:
-    name: 'gate-{name}-puppetlint'
+    name: 'gate-{name}-puppet-lint'
 
     triggers:
       - zuul
@@ -34,4 +34,4 @@
     jobs:
       - 'gate-{name}-merge'
       - 'gate-{name}-puppet-syntax'
-      - 'gate-{name}-puppetlint'
+      - 'gate-{name}-puppet-lint'
