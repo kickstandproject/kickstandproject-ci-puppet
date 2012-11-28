@@ -9,6 +9,11 @@
       - shell: "rake lint"
 
 - builder:
+    name: puppet-spec
+    builders:
+      - shell: "rake spec"
+
+- builder:
     name: puppet-syntax
     builders:
       - shell: |

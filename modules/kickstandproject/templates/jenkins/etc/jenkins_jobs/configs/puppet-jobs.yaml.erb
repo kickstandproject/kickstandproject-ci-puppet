@@ -15,6 +15,22 @@
 
 
 - job-template:
+    name: 'gate-{name}-puppet-spec'
+
+    triggers:
+      - zuul
+
+    builders:
+      - gerrit-git-prep
+      - puppet-spec
+
+    publishers:
+      - console-log
+
+    node: '{node}'
+
+
+- job-template:
     name: 'gate-{name}-puppet-syntax'
 
     triggers:
@@ -29,9 +45,11 @@
 
     node: '{node}'
 
+
 - job-group:
     name: puppet-jobs
     jobs:
       - 'gate-{name}-merge'
       - 'gate-{name}-puppet-syntax'
       - 'gate-{name}-puppet-lint'
+      - 'gate-{name}-puppet-spec'
