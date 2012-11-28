@@ -1,0 +1,13 @@
+fixtures:
+  repositories:
+    'apt': 'git://github.com/kickstandproject/kickstandproject-apt.git'
+    'common': 'git://github.com/kickstandproject/kickstandproject-common.git'
+    'network': 'git://github.com/kickstandproject/kickstandproject-network.git'
+    'ntp': 'git://github.com/kickstandproject/kickstandproject-ntp.git'
+    'puppet': 'git://github.com/kickstandproject/kickstandproject-puppet.git'
+    'ssh': 'git://github.com/kickstandproject/kickstandproject-ssh.git'
+    'stdlib': 'git://github.com/puppetlabs/puppetlabs-stdlib.git'
+    'sudoers': 'git://github.com/kickstandproject/kickstandproject-sudoers.git'
+    'timezone': 'git://github.com/kickstandproject/kickstandproject-timezone.git'
+  symlinks:
+    'kickstandproject': '#{source_dir}/modules/kickstandproject'
