@@ -13,3 +13,11 @@
 
     jobs:
       - puppet-jobs
+
+- project:
+    name: dahdi-linux
+    github-org: asterisk-demo
+    node: precise
+
+    jobs:
+      - 'gate-{name}-merge'
