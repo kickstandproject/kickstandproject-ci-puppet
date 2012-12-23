@@ -20,6 +20,10 @@ class kickstandproject::node::jenkins::config {
     content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/puppet-jobs.yaml.erb'),
   }
 
+  jenkins_job_builder::function::template { 'pypi-jobs.yaml':
+    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/pypi-jobs.yaml.erb'),
+  }
+
   jenkins_job_builder::function::template { 'python-jobs.yaml':
     content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/python-jobs.yaml.erb'),
   }
