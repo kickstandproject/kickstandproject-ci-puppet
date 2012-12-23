@@ -78,6 +78,8 @@ projects:
 
   - name: asterisk-demo/starpy
     check:
-      - gate-starpy-merge
+      - gate-starpy-merge:
+        - gate-starpy-pep8
     gate:
-      - gate-starpy-merge
+      - gate-starpy-merge:
+        - gate-starpy-pep8
