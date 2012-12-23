@@ -27,6 +27,11 @@
             erb -x -T '-' $f | ruby -c
           done
 
+- builder:
+    name: python27
+    builders:
+      - shell: "/usr/local/jenkins/slave_scripts/run-tox.sh 27"
+
 - publisher:
     name: pep8
     publishers:
