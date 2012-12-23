@@ -30,7 +30,7 @@
 - builder:
     name: python27
     builders:
-      - shell: "/usr/local/jenkins/slave_scripts/run-tox.sh 27"
+      - shell: "set -o pipefail ; tox -v -epy27 | tee py27.txt ; set +o pipefail"
 
 - publisher:
     name: pep8
