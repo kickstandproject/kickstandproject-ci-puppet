@@ -70,24 +70,6 @@ projects:
         - gate-ci-puppet-puppet-lint
         - gate-ci-puppet-puppet-syntax
 
-  - name: asterisk-demo/dahdi-linux
-    check:
-      - gate-dahdi-linux-merge
-    gate:
-      - gate-dahdi-linux-merge
-
-  - name: asterisk-demo/starpy
-    check:
-      - gate-starpy-merge:
-        - gate-starpy-pep8
-        - gate-starpy-python27
-    gate:
-      - gate-starpy-merge:
-        - gate-starpy-pep8
-        - gate-starpy-python27
-    post:
-      - starpy-sdist-tarball
-
   - name: kickstandproject/semaphore
     check:
       - gate-semaphore-merge:

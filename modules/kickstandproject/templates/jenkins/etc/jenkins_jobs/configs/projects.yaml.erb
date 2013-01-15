@@ -15,23 +15,6 @@
       - puppet-jobs
 
 - project:
-    name: dahdi-linux
-    github-org: asterisk-demo
-    node: precise
-
-    jobs:
-      - 'gate-{name}-merge'
-
-- project:
-    name: starpy
-    github-org: asterisk-demo
-    node: precise
-
-    jobs:
-      - python-jobs
-      - '{name}-sdist-tarball'
-
-- project:
     name: semaphore
     github-org: kickstandproject
     node: precise
