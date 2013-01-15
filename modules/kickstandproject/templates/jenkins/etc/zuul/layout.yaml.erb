@@ -87,3 +87,15 @@ projects:
         - gate-starpy-python27
     post:
       - starpy-sdist-tarball
+
+  - name: kickstandproject/semaphore
+    check:
+      - gate-semaphore-merge:
+        - gate-semaphore-pep8
+        - gate-semaphore-python27
+    gate:
+      - gate-semaphore-merge:
+        - gate-semaphore-pep8
+        - gate-semaphore-python27
+    post:
+      - semaphore-sdist-tarball
