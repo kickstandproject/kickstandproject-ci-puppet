@@ -8,6 +8,10 @@ class kickstandproject::node::jenkins::config {
     content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/defaults.yaml.erb'),
   }
 
+  jenkins_job_builder::function::template { 'hooks.yaml':
+    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/hooks.yaml.erb'),
+  }
+
   jenkins_job_builder::function::template { 'macros.yaml':
     content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/macros.yaml.erb'),
   }

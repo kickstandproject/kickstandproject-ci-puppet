@@ -35,7 +35,9 @@
     name: semaphore
     github-org: kickstandproject
     node: precise
+    rtfd-id: 5951
 
     jobs:
       - python-jobs
+      - 'hook-{name}-rtfd'
       - '{name}-sdist-tarball'
