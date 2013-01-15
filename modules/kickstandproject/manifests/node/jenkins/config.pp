@@ -41,6 +41,11 @@ class kickstandproject::node::jenkins::config {
   file { '/etc/zuul/layout.yaml':
     content => template('kickstandproject/jenkins/etc/zuul/layout.yaml.erb'),
   }
+
+  # TODO: Move into kickstandproject-gerritbot
+  file { '/etc/gerritbot/channels.yaml':
+    content => template('kickstandproject/jenkins/etc/gerritbot/channels.yaml.erb'),
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
