@@ -73,12 +73,15 @@ projects:
   - name: kickstandproject/semaphore
     check:
       - gate-semaphore-merge:
+        - gate-semaphore-docs
         - gate-semaphore-pep8
         - gate-semaphore-python27
     gate:
       - gate-semaphore-merge:
+        - gate-semaphore-docs
         - gate-semaphore-pep8
         - gate-semaphore-python27
     post:
-      - hook-semaphore-rtfd
       - semaphore-sdist-tarball
+      - gate-semaphore-docs
+      - hook-semaphore-rtfd
