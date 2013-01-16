@@ -4,6 +4,11 @@
       - shell: "/usr/local/jenkins/slave_scripts/gerrit-git-prep.sh review.kickstand-project.org"
 
 - builder:
+    name: docs
+    builders:
+      - shell: "set -o pipefail ; tox -v -evenv -- python setup.py build_sphinx | tee sphinx.txt ; set +o pipefail"
+
+- builder:
     name: pep8
     builders:
       - shell: "set -o pipefail ; tox -v -epep8 | tee pep8.txt ; set +o pipefail"

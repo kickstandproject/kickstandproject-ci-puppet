@@ -52,10 +52,26 @@
     node: '{node}'
 
 
+-job-template:
+    name: 'gate-{name}-docs'
+
+    triggers:
+      - zuul
+
+    builders:
+      - gerrit-git-prep
+      - docs
+
+    publishers:
+      - console-log
+
+    node: '{node}'
+
+
 - job-group:
     name: python-jobs
     jobs:
       - 'gate-{name}-merge'
       - 'gate-{name}-pep8'
       - 'gate-{name}-python27'
-
+      - 'gate-{name}-docs'
