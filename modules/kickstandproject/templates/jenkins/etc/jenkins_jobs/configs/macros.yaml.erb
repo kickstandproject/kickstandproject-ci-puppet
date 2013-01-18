@@ -14,6 +14,11 @@
       - shell: "set -o pipefail ; tox -v -epep8 | tee pep8.txt ; set +o pipefail"
 
 - builder:
+    name: pyflakes
+    builders:
+      - shell: "tox -v -epyflakes"
+
+- builder:
     name: puppet-lint
     builders:
       - shell: "rake lint"

@@ -75,11 +75,13 @@ projects:
       - gate-semaphore-merge:
         - gate-semaphore-docs
         - gate-semaphore-pep8
+        - gate-semaphore-pyflakes
         - gate-semaphore-python27
     gate:
       - gate-semaphore-merge:
         - gate-semaphore-docs
         - gate-semaphore-pep8
+        - gate-semaphore-pyflakes
         - gate-semaphore-python27
     post:
       - semaphore-sdist-tarball
