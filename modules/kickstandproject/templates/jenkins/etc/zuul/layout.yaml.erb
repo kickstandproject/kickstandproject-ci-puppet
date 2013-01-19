@@ -84,5 +84,6 @@ projects:
         - gate-semaphore-pyflakes
         - gate-semaphore-python27
     post:
-      - semaphore-sdist-tarball
       - hook-semaphore-rtfd
+      - semaphore-coverage
+      - semaphore-sdist-tarball

@@ -1,4 +1,20 @@
 - job-template:
+    name: '{name}-coverage'
+
+    triggers:
+      - zuul-post
+
+    builders:
+      - gerrit-git-prep
+      - coverage
+
+    publishers:
+      - console-log
+
+    node: '{node}'
+
+
+- job-template:
     name: 'gate-{name}-merge'
 
     triggers:
@@ -87,6 +103,7 @@
 - job-group:
     name: python-jobs
     jobs:
+      - '{name}-coverage'
       - 'gate-{name}-merge'
       - 'gate-{name}-pep8'
       - 'gate-{name}-pyflakes'
