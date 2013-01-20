@@ -47,6 +47,23 @@
 
 
 - job-template:
+    name: 'gate-{name}-pylint'
+
+    triggers:
+      - zuul
+
+    builders:
+      - gerrit-git-prep
+      - pylint
+
+    publishers:
+      - pylint
+      - console-log
+
+    node: '{node}'
+
+
+- job-template:
     name: 'gate-{name}-python27'
 
     parameters:
@@ -107,5 +124,6 @@
       - 'gate-{name}-merge'
       - 'gate-{name}-pep8'
       - 'gate-{name}-pyflakes'
+      - 'gate-{name}-pylint'
       - 'gate-{name}-python27'
       - 'gate-{name}-docs'
