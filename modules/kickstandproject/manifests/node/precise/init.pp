@@ -19,7 +19,7 @@ class kickstandproject::node::precise::init {
       'dns-search'      => 'kickstand-project.org',
     },
     'eth1' => {
-      'method'  => 'dhcp',
+      'method' => 'dhcp',
     },
   }
 
@@ -38,4 +38,4 @@ class kickstandproject::node::precise::init {
   class { 'git::client': }
 }
 
-# vim:sw=2:ts=2:expandtab:textwidth=79
+# vim:sw=2:ts=2:expandtab

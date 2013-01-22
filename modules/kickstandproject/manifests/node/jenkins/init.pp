@@ -4,6 +4,11 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::node::jenkins::init {
+  $network_auto = [
+    'eth0',
+    'eth1',
+  ]
+
   $network_interfaces = {
     'eth0' => {
       'method'          => 'static',
@@ -12,6 +17,9 @@ class kickstandproject::node::jenkins::init {
       'gateway'         => '209.87.247.145',
       'dns-nameservers' => '8.8.8.8',
       'dns-search'      => 'kickstand-project.org',
+    },
+    'eth1' => {
+      'method' => 'dhcp',
     },
   }
 
@@ -22,7 +30,8 @@ class kickstandproject::node::jenkins::init {
   }
 
   class { 'network::client':
-    interfaces  => $network_interfaces,
+    auto       => $network_auto,
+    interfaces => $network_interfaces,
   }
 
   class { 'jenkins::server':
@@ -40,4 +49,4 @@ class kickstandproject::node::jenkins::init {
   class { 'kickstandproject::node::jenkins::config': }
 }
 
-# vim:sw=2:ts=2:expandtab:textwidth=79
+# vim:sw=2:ts=2:expandtab
