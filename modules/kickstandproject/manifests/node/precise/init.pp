@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2012, PolyBeacon, Inc.
+# Copyright (C) 2012-2013, PolyBeacon, Inc.
 #
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
@@ -28,6 +28,8 @@ class kickstandproject::node::precise::init {
   class { 'kickstandproject::node::precise::bootstrap':
     stage => 'bootstrap',
   }
+
+  class { 'kickstandproject::node::precise::config': }
 
   class { 'network::client':
     auto       => $network_auto,
