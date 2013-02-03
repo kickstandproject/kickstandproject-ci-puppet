@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2012, PolyBeacon, Inc.
+# Copyright (C) 2012-2013, PolyBeacon, Inc.
 #
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
@@ -21,6 +21,8 @@ class kickstandproject::node::puppet::init {
     stage => 'bootstrap',
   }
 
+  class { 'kickstandproject::node::puppet::config': }
+
   class { 'network::client':
     interfaces  => $network_interfaces,
   }
@@ -35,4 +37,4 @@ class kickstandproject::node::puppet::init {
   }
 }
 
-# vim:sw=2:ts=2:expandtab:textwidth=79
+# vim:sw=2:ts=2:expandtab
