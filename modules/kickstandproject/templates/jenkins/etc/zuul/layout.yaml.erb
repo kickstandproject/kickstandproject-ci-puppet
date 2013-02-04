@@ -61,6 +61,12 @@ jobs:
     failure-message: This change was unable to be automatically merged with the current state of the repository. Please rebase your change and upload a new patchset.
 
 projects:
+  - name: kickstandproject/asterisk
+    check:
+      - gate-asterisk-merge
+    gate:
+      - gate-asterisk-merge
+
   - name: kickstandproject/kickstandproject-pbuilder
     check:
       - gate-kickstandproject-pbuilder-merge:
