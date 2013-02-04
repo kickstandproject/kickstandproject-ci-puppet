@@ -6,7 +6,7 @@
 - builder:
     name: buildpackage
     builders:
-      - shell:
+      - shell: |
           export PROJECT={name}
           /usr/local/jenkins/slave_scripts/ppa_script.sh
 
