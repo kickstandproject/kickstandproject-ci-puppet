@@ -9,6 +9,8 @@
       - buildpackage
 
     publishers:
+      - dpkg-buildpackage:
+          dscfile: '{name}_*.dsc' 
       - console-log
 
     node: '{node}'
