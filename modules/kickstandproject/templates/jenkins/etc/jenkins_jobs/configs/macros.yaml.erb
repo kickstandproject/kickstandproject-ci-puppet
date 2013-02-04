@@ -4,6 +4,13 @@
       - shell: "/usr/local/jenkins/slave_scripts/gerrit-git-prep.sh review.kickstand-project.org"
 
 - builder:
+    name: buildpackage
+    builders:
+      - shell:
+          export PROJECT={name}
+          /usr/local/jenkins/slave_scripts/ppa_script.sh
+
+- builder:
     name: coverage
     builders:
       - shell: |

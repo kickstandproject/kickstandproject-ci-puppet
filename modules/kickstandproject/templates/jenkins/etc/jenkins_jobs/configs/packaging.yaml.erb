@@ -1,0 +1,14 @@
+- job-template:
+    name: 'gate-{name}-buildpackage'
+
+    triggers:
+      - zuul
+
+    builders:
+      - gerrit-git-prep
+      - buildpackage
+
+    publishers:
+      - console-log
+
+    node: '{node}'

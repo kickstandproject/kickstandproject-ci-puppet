@@ -63,9 +63,11 @@ jobs:
 projects:
   - name: kickstandproject/asterisk
     check:
-      - gate-asterisk-merge
+      - gate-asterisk-merge:
+        - gate-asterisk-buildpackage
     gate:
-      - gate-asterisk-merge
+      - gate-asterisk-merge:
+        - gate-asterisk-buildpackage
 
   - name: kickstandproject/kickstandproject-pbuilder
     check:
