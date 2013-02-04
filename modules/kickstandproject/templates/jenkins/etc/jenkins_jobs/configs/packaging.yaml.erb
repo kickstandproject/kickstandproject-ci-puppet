@@ -10,7 +10,7 @@
 
     publishers:
       - dpkg-buildpackage:
-          dscfile: '{name}_*.dsc'
+          artifacts: 'debian/tmp/{name}_*'
       - console-log
 
     node: '{node}'
