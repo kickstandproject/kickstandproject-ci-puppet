@@ -16,6 +16,10 @@ class kickstandproject::node::jenkins::config {
     content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/macros.yaml.erb'),
   }
 
+  jenkins_job_builder::function::template { 'packaging.yaml':
+    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/packaging.yaml.erb'),
+  }
+
   jenkins_job_builder::function::template { 'projects.yaml':
     content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/projects.yaml.erb'),
   }
