@@ -61,6 +61,14 @@
     builders:
       - shell: "set -o pipefail ; tox -v -epy27 | tee py27.txt ; set +o pipefail"
 
+# ============================================================================
+
+- publisher:
+    name: dpkg-buildpackage
+    publishers:
+      - archive:
+          artifacts: '../build-area/{dscfile}'
+
 - publisher:
     name: pep8
     publishers:
