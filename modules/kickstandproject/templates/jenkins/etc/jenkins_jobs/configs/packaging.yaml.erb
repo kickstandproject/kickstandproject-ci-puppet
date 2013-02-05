@@ -14,14 +14,13 @@
       - dpkg-buildpackage:
           artifacts: 'debian/tmp/{name}_*'
       - trigger:
-          project: 'gate-{name}-pbuilder-amd64'
-          project: 'gate-{name}-pbuilder-i386'
+          project: 'gate-{name}-pbuilder-amd64, gate-{name}-pbuilder-i386'
       - console-log
 
     node: '{node}'
 
 - job-template:
-    name: 'gate-{name}-pbuilder'
+    name: 'gate-{name}-pbuilder-{arch}'
     concurrent: false
 
     builders:
