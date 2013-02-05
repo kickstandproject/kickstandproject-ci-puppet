@@ -1,7 +1,6 @@
 - job-template:
     name: 'gate-{name}-buildpackage'
     concurrent: false
-    block-downstream: true
 
     triggers:
       - zuul
@@ -13,8 +12,6 @@
     publishers:
       - dpkg-buildpackage:
           artifacts: 'debian/tmp/{name}_*'
-      - trigger:
-          project: 'gate-{name}-pbuilder-amd64, gate-{name}-pbuilder-i386'
       - console-log
 
     node: '{node}'
@@ -23,12 +20,17 @@
     name: 'gate-{name}-pbuilder-amd64'
     concurrent: false
 
+    triggers:
+      - zuul
+
     builders:
       - copyartifact:
           project: 'gate-{name}-buildpackage'
           filter: 'debian/tmp/{name}_*'
       - shell: |
           sudo /usr/local/bin/pbuilder-{node}-amd64 build debian/tmp/{name}_*.dsc
+          # Remove copied artifact
+          rm -rf debian
 
     publishers:
       - console-log
@@ -39,12 +41,17 @@
     name: 'gate-{name}-pbuilder-i386'
     concurrent: false
 
+    triggers:
+      - zuul
+
     builders:
       - copyartifact:
           project: 'gate-{name}-buildpackage'
           filter: 'debian/tmp/{name}_*'
       - shell: |
           sudo /usr/local/bin/pbuilder-{node}-i386 build debian/tmp/{name}_*.dsc
+          # Remove copied artifact
+          rm -rf debian
 
     publishers:
       - console-log
