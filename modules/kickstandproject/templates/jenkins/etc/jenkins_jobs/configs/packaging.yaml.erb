@@ -28,7 +28,7 @@
           project: 'gate-{name}-buildpackage'
           filter: 'debian/tmp/{name}_*'
       - shell: |
-          /usr/local/jenkins/slave_scripts/pbuilder-{node}-amd.sh build debian/tmp/{name}_*.dsc
+          /usr/local/bin/pbuilder-{node}-amd64 build debian/tmp/{name}_*.dsc
 
     publishers:
       - console-log
