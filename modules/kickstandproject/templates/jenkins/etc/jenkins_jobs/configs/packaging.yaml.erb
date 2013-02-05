@@ -14,7 +14,8 @@
       - dpkg-buildpackage:
           artifacts: 'debian/tmp/{name}_*'
       - trigger:
-          project: 'gate-{name}-pbuilder'
+          project: 'gate-{name}-pbuilder-amd64'
+          project: 'gate-{name}-pbuilder-i386'
       - console-log
 
     node: '{node}'
@@ -28,7 +29,7 @@
           project: 'gate-{name}-buildpackage'
           filter: 'debian/tmp/{name}_*'
       - shell: |
-          /usr/local/jenkins/slave_scripts/pbuilder-{node}-amd.sh build debian/tmp/{name}_*.dsc
+          /usr/local/bin/pbuilder-{node}-{arch} build debian/tmp/{name}_*.dsc
 
     publishers:
       - console-log
