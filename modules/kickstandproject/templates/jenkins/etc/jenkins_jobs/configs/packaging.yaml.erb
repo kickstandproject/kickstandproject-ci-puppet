@@ -20,7 +20,7 @@
     node: '{node}'
 
 - job-template:
-    name: 'gate-{name}-pbuilder-{arch}'
+    name: 'gate-{name}-pbuilder-amd64'
     concurrent: false
 
     builders:
@@ -28,7 +28,23 @@
           project: 'gate-{name}-buildpackage'
           filter: 'debian/tmp/{name}_*'
       - shell: |
-          /usr/local/bin/pbuilder-{node}-{arch} build debian/tmp/{name}_*.dsc
+          /usr/local/bin/pbuilder-{node}-amd64 build debian/tmp/{name}_*.dsc
+
+    publishers:
+      - console-log
+
+    node: '{node}'
+
+- job-template:
+    name: 'gate-{name}-pbuilder-i386'
+    concurrent: false
+
+    builders:
+      - copyartifact:
+          project: 'gate-{name}-buildpackage'
+          filter: 'debian/tmp/{name}_*'
+      - shell: |
+          /usr/local/bin/pbuilder-{node}-i386 build debian/tmp/{name}_*.dsc
 
     publishers:
       - console-log
