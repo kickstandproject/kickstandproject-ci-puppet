@@ -1,5 +1,7 @@
 - job-template:
     name: 'gate-{name}-buildpackage'
+    concurrent: false
+    block-downstream: true
 
     triggers:
       - zuul
@@ -11,6 +13,24 @@
     publishers:
       - dpkg-buildpackage:
           artifacts: 'debian/tmp/{name}_*'
+      - trigger:
+          project: 'gate-{name}-pbuilder'
+      - console-log
+
+    node: '{node}'
+
+- job-template:
+    name: 'gate-{name}-pbuilder'
+    concurrent: false
+
+    builders:
+      - copyartifact:
+          project: 'gate-{name}-buildpackage'
+          filter: 'debian/tmp/{name}_*'
+      - shell: |
+          /usr/local/jenkins/slave_scripts/pbuilder-{node}-amd.sh build debian/tmp/{name}_*.dsc
+
+    publishers:
       - console-log
 
     node: '{node}'
