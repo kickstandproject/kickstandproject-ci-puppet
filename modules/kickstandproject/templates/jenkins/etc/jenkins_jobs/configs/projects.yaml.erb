@@ -2,12 +2,14 @@
     name: asterisk
     github-org: kickstandproject
     node: precise
+    arch:
+      - amd64
+      - i386
 
     jobs:
       - 'gate-{name}-merge'
       - 'gate-{name}-buildpackage'
-      - 'gate-{name}-pbuilder-amd64'
-      - 'gate-{name}-pbuilder-i386'
+      - 'gate-{name}-pbuilder-{arch}'
 
 - project:
     name: ci-puppet
