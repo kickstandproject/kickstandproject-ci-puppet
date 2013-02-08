@@ -73,6 +73,18 @@ projects:
           - gate-asterisk-pbuilder-amd64
           - gate-asterisk-pbuilder-i386
 
+  - name: kickstandproject/dahdi-linux
+    check:
+      - gate-dahdi-linux-merge:
+        - gate-dahdi-linux-buildpackage:
+          - gate-dahdi-linux-pbuilder-amd64
+          - gate-dahdi-linux-pbuilder-i386
+    gate:
+      - gate-dahdi-linux-merge:
+        - gate-dahdi-linux-buildpackage:
+          - gate-dahdi-linux-pbuilder-amd64
+          - gate-dahdi-linux-pbuilder-i386
+
   - name: kickstandproject/kickstandproject-pbuilder
     check:
       - gate-kickstandproject-pbuilder-merge:

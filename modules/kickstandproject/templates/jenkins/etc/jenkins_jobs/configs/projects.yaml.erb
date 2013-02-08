@@ -20,6 +20,19 @@
       - puppet-jobs
 
 - project:
+    name: dahdi-linux
+    github-org: kickstandproject
+    node: precise
+    arch:
+      - amd64
+      - i386
+
+    jobs:
+      - 'gate-{name}-merge'
+      - 'gate-{name}-buildpackage'
+      - 'gate-{name}-pbuilder-{arch}'
+
+- project:
     name: kickstandproject-pbuilder
     github-org: kickstandproject
     node: precise
