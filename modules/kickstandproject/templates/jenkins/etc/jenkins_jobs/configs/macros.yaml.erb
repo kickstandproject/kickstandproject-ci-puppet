@@ -70,6 +70,13 @@
           latest_only: true
 
 - publisher:
+    name: pbuilder
+    publishers:
+      - archive:
+          artifacts: '{artifacts}'
+          latest_only: true
+
+- publisher:
     name: pep8
     publishers:
       - violations:

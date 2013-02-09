@@ -28,11 +28,13 @@
           project: 'gate-{name}-buildpackage'
           filter: 'debian/tmp/{name}_*'
       - shell: |
-          sudo /usr/local/bin/pbuilder-{node}-{arch} build debian/tmp/{name}_*.dsc
+          sudo /usr/local/bin/pbuilder-{node}-{arch} build --buildresult "`pwd`/result" debian/tmp/{name}_*.dsc
           # Remove copied artifact
           rm -rf debian
 
     publishers:
+      - pbuilder:
+          artifacts: 'result/*'
       - console-log
 
     node: '{node}'
