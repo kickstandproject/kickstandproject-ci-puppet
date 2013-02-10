@@ -51,7 +51,9 @@
       - copyartifact:
           project: 'gate-{name}-buildpackage'
           filter: 'debian/tmp/{name}_*'
+      - shell: |
+          dput ppa:ksp-apus/experimental debian/tmp/{name}_*.dsc
+          rm -rf debian
 
     publishers:
-      - sppa
       - console-log
