@@ -38,3 +38,18 @@
       - console-log
 
     node: '{node}'
+
+- job-template:
+    name: 'ppa-{name}-{archive}'
+    node: precise
+
+    trigers:
+      - zuul-post
+
+    builders:
+      - copyartifact:
+          project: 'gate-{name}-buildpackage'
+          filter: 'debian/tmp/{name}_*'
+
+    publishers:
+      - sppa

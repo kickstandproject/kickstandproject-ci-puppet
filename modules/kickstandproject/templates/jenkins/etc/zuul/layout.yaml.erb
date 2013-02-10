@@ -82,6 +82,8 @@ projects:
       - gate-dahdi-linux-merge:
         - gate-dahdi-linux-buildpackage:
           - gate-dahdi-linux-pbuilder-amd64
+    post:
+      - ppa-dahdi-linux-experimental
 
   - name: kickstandproject/kickstandproject-pbuilder
     check:
