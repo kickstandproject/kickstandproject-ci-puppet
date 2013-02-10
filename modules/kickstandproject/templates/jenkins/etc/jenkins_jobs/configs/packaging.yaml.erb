@@ -52,7 +52,7 @@
           project: 'gate-{name}-buildpackage'
           filter: 'debian/tmp/{name}_*'
       - shell: |
-          dput ppa:ksp-apus/experimental debian/tmp/{name}_*.dsc
+          dput ppa:ksp-apus/experimental debian/tmp/{name}_*.changes
           rm -rf debian
 
     publishers:
