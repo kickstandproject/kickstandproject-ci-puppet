@@ -25,13 +25,12 @@
     node: precise
     arch:
       - amd64
-    archive: experimental
 
     jobs:
       - 'gate-{name}-merge'
       - 'gate-{name}-buildpackage'
       - 'gate-{name}-pbuilder-{arch}'
-      - 'ppa-{name}-{archive}'
+      - 'ppa-{name}-experimental'
 
 - project:
     name: kickstandproject-pbuilder
