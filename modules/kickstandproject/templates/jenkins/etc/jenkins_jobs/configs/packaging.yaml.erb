@@ -40,8 +40,7 @@
     node: '{node}'
 
 - job-template:
-    name: 'ppa-{name}-{archive}'
-    node: precise
+    name: 'ppa-{name}-experimental'
 
     trigers:
       - zuul-post
@@ -53,3 +52,4 @@
 
     publishers:
       - sppa
+      - console-log
