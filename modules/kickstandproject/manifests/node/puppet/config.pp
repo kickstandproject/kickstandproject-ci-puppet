@@ -10,11 +10,6 @@ class kickstandproject::node::puppet::config {
     revision => 'master',
     source   => 'git://github.com/kickstandproject/kickstandproject-ci-puppet.git',
   }
-
-  file { '/tmp/foo':
-    ensure => file,
-    source => 'puppet:///modules/kickstandproject/foo',
-  }
 }
 
 # vim:sw=2:ts=2:expandtab
