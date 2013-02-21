@@ -32,7 +32,8 @@ class kickstandproject::node::puppet::init {
       '*.kickstand-project.org',
     ],
     options  => {
-      'modulepath' => '/opt/kickstandproject-ci-puppet/$environment/modules:/opt/kickstandproject-ci-puppet/$environment/.modules',
+      'manifestdir' => '/opt/kickstandproject-ci-puppet/$environment/manifests',
+      'modulepath'  => '/opt/kickstandproject-ci-puppet/$environment/modules:/opt/kickstandproject-ci-puppet/$environment/.modules',
     }
   }
 }

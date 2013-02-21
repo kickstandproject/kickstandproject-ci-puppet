@@ -1,17 +1,9 @@
-node 'gerrit-01-prod.kickstand-project.org' {
-  class { 'kickstandproject::node::gerrit::init': }
+import 'nodes.pp'
+
+stage { 'bootstrap':
+  before => Stage['main'],
 }
 
-node 'jenkins-01-prod.kickstand-project.org' {
-  class { 'kickstandproject::node::jenkins::init': }
+Exec {
+  path => '/bin:/sbin:/usr/bin:/usr/sbin',
 }
-
-node 'precise-01-prod.kickstand-project.org' {
-  class { 'kickstandproject::node::precise::init': }
-}
-
-node 'puppet-01-prod.kickstand-project.org' {
-  class { 'kickstandproject::node::puppet::init': }
-}
-
-# vim:sw=2:ts=2:expandtab
