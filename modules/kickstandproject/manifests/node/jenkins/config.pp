@@ -4,36 +4,11 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::node::jenkins::config {
-  jenkins_job_builder::function::template { 'defaults.yaml':
-    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/defaults.yaml.erb'),
-  }
-
-  jenkins_job_builder::function::template { 'hooks.yaml':
-    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/hooks.yaml.erb'),
-  }
-
-  jenkins_job_builder::function::template { 'macros.yaml':
-    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/macros.yaml.erb'),
-  }
-
-  jenkins_job_builder::function::template { 'packaging.yaml':
-    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/packaging.yaml.erb'),
-  }
-
-  jenkins_job_builder::function::template { 'projects.yaml':
-    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/projects.yaml.erb'),
-  }
-
-  jenkins_job_builder::function::template { 'puppet-jobs.yaml':
-    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/puppet-jobs.yaml.erb'),
-  }
-
-  jenkins_job_builder::function::template { 'pypi-jobs.yaml':
-    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/pypi-jobs.yaml.erb'),
-  }
-
-  jenkins_job_builder::function::template { 'python-jobs.yaml':
-    content => template('kickstandproject/jenkins/etc/jenkins_jobs/configs/python-jobs.yaml.erb'),
+  file { '/etc/jenkins_jobs/configs':
+    ensure  => directory,
+    notify  => Exec['jenkins-jobs-update'],
+    require => Class['jenkins_job_builder'],
+    source  => 'puppet:///modules/kickstandproject/jenkins/etc/jenkins_jobs/configs',
   }
 
   # TODO: Move into kickstandproject-zuul
