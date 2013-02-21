@@ -2,6 +2,9 @@ forge "http://forge.puppetlabs.com"
 
 path ".modules"
 
+mod 'kickstandproject/apache',
+  :git => 'git://github.com/kickstandproject/kickstandproject-apache.git'
+
 mod 'kickstandproject/apt',
   :git => 'git://github.com/kickstandproject/kickstandproject-apt.git'
 
