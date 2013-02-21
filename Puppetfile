@@ -23,3 +23,8 @@ mod 'kickstandproject/sudoers',
 
 mod 'kickstandproject/timezone',
   :git => 'git://github.com/kickstandproject/kickstandproject-timezone.git'
+
+# Other modules we depend on
+mod 'openstack-infra/vcsrepo',
+  :git => 'git://github.com/openstack-infra/puppet-vcsrepo.git'
+
