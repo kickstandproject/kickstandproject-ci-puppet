@@ -15,6 +15,9 @@ mod 'kickstandproject/common',
 mod 'kickstandproject/dhcp',
   :git => 'git://github.com/kickstandproject/kickstandproject-dhcp.git'
 
+mod 'kickstandproject/git',
+  :git => 'git://github.com/kickstandproject/kickstandproject-git.git'
+
 mod 'kickstandproject/network',
   :git => 'git://github.com/kickstandproject/kickstandproject-network.git'
 
