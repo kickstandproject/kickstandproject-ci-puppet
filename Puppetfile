@@ -16,3 +16,6 @@ mod 'kickstandproject/ssh',
 
 mod 'kickstandproject/sudoers',
   :git => 'git://github.com/kickstandproject/kickstandproject-sudoers.git'
+
+mod 'kickstandproject/timezone',
+  :git => 'git://github.com/kickstandproject/kickstandproject-timezone.git'
