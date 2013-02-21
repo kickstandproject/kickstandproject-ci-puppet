@@ -9,6 +9,9 @@ mod 'kickstandproject/apt',
 mod 'kickstandproject/common',
   :git => 'git://github.com/kickstandproject/kickstandproject-common.git'
 
+mod 'kickstandproject/dhcp',
+  :git => 'git://github.com/kickstandproject/kickstandproject-dhcp.git'
+
 mod 'kickstandproject/network',
   :git => 'git://github.com/kickstandproject/kickstandproject-network.git'
 
