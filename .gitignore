@@ -1,3 +1,5 @@
 .modules/*
+.librarian/*
 .tmp/*
+Puppetfile.lock
 spec/fixtures/modules/*
