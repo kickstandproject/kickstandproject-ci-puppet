@@ -21,6 +21,9 @@ mod 'kickstandproject/git',
 mod 'kickstandproject/jenkins',
   :git => 'git://github.com/kickstandproject/kickstandproject-jenkins.git'
 
+mod 'kickstandproject/jenkins_job_builder',
+  :git => 'git://github.com/kickstandproject/kickstandproject-jenkins_job_builder.git'
+
 mod 'kickstandproject/network',
   :git => 'git://github.com/kickstandproject/kickstandproject-network.git'
 
