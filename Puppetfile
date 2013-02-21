@@ -13,3 +13,6 @@ mod 'kickstandproject/puppet',
 
 mod 'kickstandproject/ssh',
   :git => 'git://github.com/kickstandproject/kickstandproject-ssh.git'
+
+mod 'kickstandproject/sudoers',
+  :git => 'git://github.com/kickstandproject/kickstandproject-sudoers.git'
