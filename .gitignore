@@ -1,1 +1,3 @@
+.modules/*
+.tmp/*
 spec/fixtures/modules/*

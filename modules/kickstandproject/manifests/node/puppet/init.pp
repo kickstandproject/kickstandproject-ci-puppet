@@ -32,7 +32,7 @@ class kickstandproject::node::puppet::init {
       '*.kickstand-project.org',
     ],
     options  => {
-      'modulepath' => '/opt/puppet-modules/$environment/modules:/etc/puppet/modules',
+      'modulepath' => '/opt/kickstandproject-ci-puppet/$environment/modules:/opt/kickstandproject-ci-puppet/$environment/.modules',
     }
   }
 }
