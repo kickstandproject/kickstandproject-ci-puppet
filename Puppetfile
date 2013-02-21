@@ -5,6 +5,10 @@ path ".modules"
 mod 'kickstandproject/apt',
   :git => 'git://github.com/kickstandproject/kickstandproject-apt.git'
 
+# This module needs to die
+mod 'kickstandproject/common',
+  :git => 'git://github.com/kickstandproject/kickstandproject-common.git'
+
 mod 'kickstandproject/ntp',
   :git => 'git://github.com/kickstandproject/kickstandproject-ntp.git'
 
