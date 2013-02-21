@@ -37,4 +37,6 @@ mod 'kickstandproject/timezone',
 mod 'openstack-infra/vcsrepo',
   :git => 'git://github.com/openstack-infra/puppet-vcsrepo.git'
 
-mod 'puppetlabs/mysql', '0.6.1'
+mod 'puppetlabs/mysql',
+  :git => 'git://github.com/puppetlabs/puppetlabs-mysql.git',
+  :ref => '0.6.1'
