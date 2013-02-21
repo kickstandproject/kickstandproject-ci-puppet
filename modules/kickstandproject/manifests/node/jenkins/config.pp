@@ -7,7 +7,7 @@ class kickstandproject::node::jenkins::config {
   file { '/etc/jenkins_jobs/configs':
     ensure  => directory,
     notify  => Exec['jenkins-jobs-update'],
-    require => Class['jenkins_jobs_builder'],
+    require => Class['jenkins_job_builder::client'],
     source  => 'puppet:///modules/kickstandproject/jenkins/etc/jenkins_jobs/configs',
   }
 
