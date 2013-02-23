@@ -8,7 +8,7 @@ class kickstandproject::node::gerrit::config {
 
   mysql::db { 'reviewdb':
     charset   => 'latin1',
-    password  => 'secret',
+    password  => hiera('mysql_db_password'),
     user      => 'gerrit2',
   }
 
