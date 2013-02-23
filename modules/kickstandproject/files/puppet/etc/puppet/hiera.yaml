@@ -3,6 +3,7 @@
 #
 ---
 :hierarchy:
+  - %{::clientcert}
   - common
 :backends:
   - yaml
