@@ -8,10 +8,6 @@ mod 'kickstandproject/apache',
 mod 'kickstandproject/apt',
   :git => 'git://github.com/kickstandproject/kickstandproject-apt.git'
 
-# This module needs to die
-mod 'kickstandproject/common',
-  :git => 'git://github.com/kickstandproject/kickstandproject-common.git'
-
 mod 'kickstandproject/dhcp',
   :git => 'git://github.com/kickstandproject/kickstandproject-dhcp.git'
 
@@ -52,3 +48,6 @@ mod 'openstack-infra/vcsrepo',
 mod 'puppetlabs/mysql',
   :git => 'git://github.com/puppetlabs/puppetlabs-mysql.git',
   :ref => '0.6.1'
+
+mod 'ripienaar/concat',
+  :git => 'git://github.com/ripienaar/puppet-concat.git'
