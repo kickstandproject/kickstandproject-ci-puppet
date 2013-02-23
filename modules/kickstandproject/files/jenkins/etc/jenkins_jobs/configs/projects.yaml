@@ -37,6 +37,14 @@
       - 'ppa-{name}-experimental'
 
 - project:
+    name: kickstandproject-jeepyb
+    github-org: kickstandproject
+    node: precise
+
+    jobs:
+      - puppet-jobs
+
+- project:
     name: kickstandproject-pbuilder
     github-org: kickstandproject
     node: precise

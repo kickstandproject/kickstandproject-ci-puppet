@@ -87,6 +87,18 @@ projects:
     post:
       - ppa-dahdi-linux-experimental
 
+  - name: kickstandproject/kickstandproject-jeepyb
+    check:
+      - gate-kickstandproject-jeepyb-merge:
+        - gate-kickstandproject-jeepyb-puppet-lint
+        - gate-kickstandproject-jeepyb-puppet-spec
+        - gate-kickstandproject-jeepyb-puppet-syntax
+    gate:
+      - gate-kickstandproject-jeepyb-merge:
+        - gate-kickstandproject-jeepyb-puppet-lint
+        - gate-kickstandproject-jeepyb-puppet-spec
+        - gate-kickstandproject-jeepyb-puppet-syntax
+
   - name: kickstandproject/kickstandproject-pbuilder
     check:
       - gate-kickstandproject-pbuilder-merge:
