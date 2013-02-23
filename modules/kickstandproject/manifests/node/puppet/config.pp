@@ -10,6 +10,13 @@ class kickstandproject::node::puppet::config {
     revision => 'master',
     source   => 'git://github.com/kickstandproject/kickstandproject-ci-puppet.git',
   }
+
+  file { '/etc/puppet/hiera.yaml':
+    ensure  => file,
+    notify  => Class['apache::common::service'],
+    require => Class['puppet::server'],
+    source  => 'puppet:///modules/kickstandproject/puppet/etc/puppet/hiera.yaml',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
