@@ -20,6 +20,12 @@ class kickstandproject::node::gerrit::config {
   file { '/home/gerrit2/projects.yaml':
     content => template('kickstandproject/gerrit/home/gerrit2/projects.yaml.erb'),
   }
+
+  file { '/home/gerrit2/acls':
+    ensure  => directory,
+    recurse => true,
+    source  => 'puppet:///modules/kickstandproject/gerrit/home/gerrit2/acls',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
