@@ -57,6 +57,8 @@ pipelines:
       - event: patchset-created
 
 jobs:
+  - name: gate-semaphore-pylint
+    voting: false
   - name: ^.*-merge$
     failure-message: This change was unable to be automatically merged with the current state of the repository. Please rebase your change and upload a new patchset.
 
@@ -146,7 +148,6 @@ projects:
         - gate-semaphore-docs
         - gate-semaphore-pep8
         - gate-semaphore-pyflakes
-        - gate-semaphore-pylint
         - gate-semaphore-python27
     post:
       - hook-semaphore-rtfd
