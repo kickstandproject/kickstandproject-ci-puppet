@@ -29,7 +29,7 @@ class kickstandproject::node::jenkins::config {
   # TODO: Move into kickstandproject-gerritbot
   file { '/etc/gerritbot/channels.yaml':
     content => template('kickstandproject/jenkins/etc/gerritbot/channels.yaml.erb'),
-    notify  => Service['gerrit'],
+    notify  => Service['gerritbot'],
   }
 
   service { 'gerritbot':
