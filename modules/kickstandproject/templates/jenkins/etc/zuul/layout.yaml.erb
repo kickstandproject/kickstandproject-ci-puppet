@@ -135,6 +135,25 @@ projects:
         - gate-ci-puppet-puppet-lint
         - gate-ci-puppet-puppet-syntax
 
+  - name: kickstandproject/sarlacc
+    check:
+      - gate-sarlacc-merge:
+        - gate-sarlacc-docs
+        - gate-sarlacc-pep8
+        - gate-sarlacc-pyflakes
+        - gate-sarlacc-pylint
+        - gate-sarlacc-python27
+    gate:
+      - gate-sarlacc-merge:
+        - gate-sarlacc-docs
+        - gate-sarlacc-pep8
+        - gate-sarlacc-pyflakes
+        - gate-sarlacc-python27
+    post:
+      - hook-sarlacc-rtfd
+      - sarlacc-coverage
+      - sarlacc-sdist-tarball
+
   - name: kickstandproject/semaphore
     check:
       - gate-semaphore-merge:
