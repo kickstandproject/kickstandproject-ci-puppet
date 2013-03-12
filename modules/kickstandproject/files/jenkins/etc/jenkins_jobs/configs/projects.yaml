@@ -61,6 +61,17 @@
       - puppet-jobs
 
 - project:
+    name: sarlacc
+    github-org: kickstandproject
+    node: precise
+    rtfd-id: 6581
+
+    jobs:
+      - python-jobs
+      - 'hook-{name}-rtfd'
+      - '{name}-sdist-tarball'
+
+- project:
     name: semaphore
     github-org: kickstandproject
     node: precise
