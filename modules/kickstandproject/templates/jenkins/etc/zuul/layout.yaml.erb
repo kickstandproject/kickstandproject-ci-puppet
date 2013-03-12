@@ -57,6 +57,8 @@ pipelines:
       - event: patchset-created
 
 jobs:
+  - name: gate-sarlacc-pylint
+    voting: false
   - name: gate-semaphore-pylint
     voting: false
   - name: ^.*-merge$
