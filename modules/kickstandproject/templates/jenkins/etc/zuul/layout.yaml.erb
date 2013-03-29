@@ -61,6 +61,8 @@ jobs:
     voting: false
   - name: gate-semaphore-pylint
     voting: false
+  - name: gate-stripe-pylint
+    voting: false
   - name: ^.*-merge$
     failure-message: This change was unable to be automatically merged with the current state of the repository. Please rebase your change and upload a new patchset.
 
@@ -174,3 +176,22 @@ projects:
       - hook-semaphore-rtfd
       - semaphore-coverage
       - semaphore-sdist-tarball
+
+  - name: kickstandproject/stripe
+    check:
+      - gate-stripe-merge:
+        - gate-stripe-docs
+        - gate-stripe-pep8
+        - gate-stripe-pyflakes
+        - gate-stripe-pylint
+        - gate-stripe-python27
+    gate:
+      - gate-stripe-merge:
+        - gate-stripe-docs
+        - gate-stripe-pep8
+        - gate-stripe-pyflakes
+        - gate-stripe-python27
+    post:
+      - hook-stripe-rtfd
+      - stripe-coverage
+      - stripe-sdist-tarball

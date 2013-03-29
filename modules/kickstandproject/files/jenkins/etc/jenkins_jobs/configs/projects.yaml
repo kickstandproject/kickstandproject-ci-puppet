@@ -81,3 +81,14 @@
       - python-jobs
       - 'hook-{name}-rtfd'
       - '{name}-sdist-tarball'
+
+- project:
+    name: stripe
+    github-org: kickstandproject
+    node: precise
+    rtfd-id: 6776
+
+    jobs:
+      - python-jobs
+      - 'hook-{name}-rtfd'
+      - '{name}-sdist-tarball'
