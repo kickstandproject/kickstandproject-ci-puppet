@@ -37,6 +37,19 @@
       - 'ppa-{name}-experimental'
 
 - project:
+    name: dahdi-tools
+    github-org: kickstandproject
+    node: precise
+    arch:
+      - amd64
+
+    jobs:
+      - 'gate-{name}-merge'
+      - 'gate-{name}-buildpackage'
+      - 'gate-{name}-pbuilder-{arch}'
+      - 'ppa-{name}-experimental'
+
+- project:
     name: kickstandproject-jeepyb
     github-org: kickstandproject
     node: precise

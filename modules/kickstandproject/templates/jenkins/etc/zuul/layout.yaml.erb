@@ -93,6 +93,18 @@ projects:
     post:
       - ppa-dahdi-linux-experimental
 
+  - name: kickstandproject/dahdi-tools
+    check:
+      - gate-dahdi-tools-merge:
+        - gate-dahdi-tools-buildpackage:
+          - gate-dahdi-tools-pbuilder-amd64
+    gate:
+      - gate-dahdi-tools-merge:
+        - gate-dahdi-tools-buildpackage:
+          - gate-dahdi-tools-pbuilder-amd64
+    post:
+      - ppa-dahdi-tools-experimental
+
   - name: kickstandproject/kickstandproject-jeepyb
     check:
       - gate-kickstandproject-jeepyb-merge:
