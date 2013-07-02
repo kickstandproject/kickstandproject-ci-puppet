@@ -35,11 +35,6 @@
       - shell: "set -o pipefail ; tox -v -epylint | tee pylint.txt ; set +o pipefail"
 
 - builder:
-    name: pyflakes
-    builders:
-      - shell: "tox -v -epyflakes"
-
-- builder:
     name: puppet-lint
     builders:
       - shell: "rake lint"
