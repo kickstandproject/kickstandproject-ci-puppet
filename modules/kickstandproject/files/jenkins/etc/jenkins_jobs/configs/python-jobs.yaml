@@ -104,29 +104,12 @@
     node: '{node}'
 
 
-- job-template:
-    name: 'gate-{name}-pyflakes'
-
-    triggers:
-      - zuul
-
-    builders:
-      - gerrit-git-prep
-      - pyflakes
-
-    publishers:
-      - console-log
-
-    node: '{node}'
-
-
 - job-group:
     name: python-jobs
     jobs:
       - '{name}-coverage'
       - 'gate-{name}-merge'
       - 'gate-{name}-pep8'
-      - 'gate-{name}-pyflakes'
       - 'gate-{name}-pylint'
       - 'gate-{name}-python27'
       - 'gate-{name}-docs'
