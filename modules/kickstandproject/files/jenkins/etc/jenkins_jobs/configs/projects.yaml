@@ -99,7 +99,7 @@
     name: stripe
     github-org: kickstandproject
     node: precise
-    rtfd-id: 6776
+    rtfd-id: 8016
 
     jobs:
       - python-jobs
