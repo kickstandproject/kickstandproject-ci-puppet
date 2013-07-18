@@ -82,6 +82,15 @@
       - puppet-jobs
 
 - project:
+    name: python-stripeclient
+    github-org: kickstandproject
+    node: precise
+
+    jobs:
+      - python-jobs
+      - '{name}-sdist-tarball'
+
+- project:
     name: sarlacc
     github-org: kickstandproject
     node: precise

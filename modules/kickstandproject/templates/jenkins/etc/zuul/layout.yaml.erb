@@ -163,6 +163,22 @@ projects:
         - gate-ci-puppet-puppet-lint
         - gate-ci-puppet-puppet-syntax
 
+  - name: kickstandproject/python-stripeclient
+    check:
+      - gate-python-stripeclient-merge:
+        - gate-python-stripeclient-docs
+        - gate-python-stripeclient-pep8
+        - gate-python-stripeclient-pylint
+        - gate-python-stripeclient-python27
+    gate:
+      - gate-python-stripeclient-merge:
+        - gate-python-stripeclient-docs
+        - gate-python-stripeclient-pep8
+        - gate-python-stripeclient-python27
+    post:
+      - python-stripeclient-coverage
+      - python-stripeclient-sdist-tarball
+
   - name: kickstandproject/sarlacc
     check:
       - gate-sarlacc-merge:
