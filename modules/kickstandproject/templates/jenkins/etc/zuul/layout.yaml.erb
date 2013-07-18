@@ -105,6 +105,18 @@ projects:
     post:
       - ppa-dahdi-tools-experimental
 
+  - name: kickstandproject/kickstandproject-asterisk
+    check:
+      - gate-kickstandproject-asterisk-merge:
+        - gate-kickstandproject-asterisk-puppet-lint
+        - gate-kickstandproject-asterisk-puppet-spec
+        - gate-kickstandproject-asterisk-puppet-syntax
+    gate:
+      - gate-kickstandproject-asterisk-merge:
+        - gate-kickstandproject-asterisk-puppet-lint
+        - gate-kickstandproject-asterisk-puppet-spec
+        - gate-kickstandproject-asterisk-puppet-syntax
+
   - name: kickstandproject/kickstandproject-jeepyb
     check:
       - gate-kickstandproject-jeepyb-merge:
