@@ -194,9 +194,9 @@ projects:
         - gate-sarlacc-pep8
         - gate-sarlacc-python27
     post:
-      - hook-sarlacc-rtfd
       - sarlacc-coverage
-      - sarlacc-sdist-tarball
+      - sarlacc-sdist-tarball:
+        - hook-sarlacc-rtfd
 
   - name: kickstandproject/semaphore
     check:
@@ -211,9 +211,9 @@ projects:
         - gate-semaphore-pep8
         - gate-semaphore-python27
     post:
-      - hook-semaphore-rtfd
       - semaphore-coverage
-      - semaphore-sdist-tarball
+      - semaphore-sdist-tarball:
+        - hook-semaphore-rtfd
 
   - name: kickstandproject/stripe
     check:
@@ -228,6 +228,6 @@ projects:
         - gate-stripe-pep8
         - gate-stripe-python27
     post:
-      - hook-stripe-rtfd
       - stripe-coverage
-      - stripe-sdist-tarball
+      - stripe-sdist-tarball:
+        - hook-stripe-rtfd
