@@ -179,7 +179,7 @@ projects:
         - gate-python-stripeclient-python27
     post:
       - python-stripeclient-coverage
-      - python-stripeclient-sdist-tarball
+      - python-stripeclient-branch-tarball
 
   - name: kickstandproject/sarlacc
     check:
@@ -195,7 +195,7 @@ projects:
         - gate-sarlacc-python27
     post:
       - sarlacc-coverage
-      - sarlacc-sdist-tarball:
+      - sarlacc-branch-tarball:
         - hook-sarlacc-rtfd
 
   - name: kickstandproject/semaphore
@@ -212,7 +212,7 @@ projects:
         - gate-semaphore-python27
     post:
       - semaphore-coverage
-      - semaphore-sdist-tarball:
+      - semaphore-branch-tarball:
         - hook-semaphore-rtfd
 
   - name: kickstandproject/stripe
@@ -229,5 +229,5 @@ projects:
         - gate-stripe-python27
     post:
       - stripe-coverage
-      - stripe-sdist-tarball:
+      - stripe-branch-tarball:
         - hook-stripe-rtfd

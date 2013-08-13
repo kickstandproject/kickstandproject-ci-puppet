@@ -85,40 +85,40 @@
     name: python-stripeclient
     github-org: kickstandproject
     node: precise
+    tarball-site: tarballs.kickstand-project.org
 
     jobs:
       - python-jobs
-      - '{name}-sdist-tarball'
 
 - project:
     name: sarlacc
     github-org: kickstandproject
     node: precise
     rtfd-id: 6581
+    tarball-site: tarballs.kickstand-project.org
 
     jobs:
       - python-jobs
       - 'hook-{name}-rtfd'
-      - '{name}-sdist-tarball'
 
 - project:
     name: semaphore
     github-org: kickstandproject
     node: precise
     rtfd-id: 5951
+    tarball-site: tarballs.kickstand-project.org
 
     jobs:
       - python-jobs
       - 'hook-{name}-rtfd'
-      - '{name}-sdist-tarball'
 
 - project:
     name: stripe
     github-org: kickstandproject
     node: precise
     rtfd-id: 8016
+    tarball-site: tarballs.kickstand-project.org
 
     jobs:
       - python-jobs
       - 'hook-{name}-rtfd'
-      - '{name}-sdist-tarball'

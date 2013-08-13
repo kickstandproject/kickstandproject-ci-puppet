@@ -58,6 +58,18 @@
     builders:
       - shell: "set -o pipefail ; tox -v -epy27 | tee py27.txt ; set +o pipefail"
 
+- builder:
+    name: tarball
+    builders:
+      - shell: |
+          #!/bin/bash -xe
+          rm -rf dist/*.tar.gz
+          tox -evenv python setup.py sdist
+          echo "SHA1sum: "
+          sha1sum dist/*
+          echo "MD5sum: "
+          md5sum dist/*
+
 # ============================================================================
 
 - publisher:
@@ -93,3 +105,14 @@
             max: 1
             unstable: 1
             pattern: '**/pylint.txt'
+
+- publisher:
+    name: tarball
+    publishers:
+      - archive:
+          artifacts: 'dist/*.tar.gz'
+      - scp:
+          site: '{site}'
+          files:
+            - target: 'tarballs/{project}/'
+              source: 'dist/*.tar.gz'
