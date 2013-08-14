@@ -180,6 +180,8 @@ projects:
     post:
       - python-stripeclient-coverage
       - python-stripeclient-branch-tarball
+    pre-release:
+      - python-stripeclient-tarball
 
   - name: kickstandproject/sarlacc
     check:
@@ -196,6 +198,9 @@ projects:
     post:
       - sarlacc-coverage
       - sarlacc-branch-tarball:
+        - hook-sarlacc-rtfd
+    pre-release:
+      - sarlacc-tarball:
         - hook-sarlacc-rtfd
 
   - name: kickstandproject/semaphore
@@ -214,6 +219,9 @@ projects:
       - semaphore-coverage
       - semaphore-branch-tarball:
         - hook-semaphore-rtfd
+    pre-release:
+      - semaphore-tarball:
+        - hook-semaphore-rtfd
 
   - name: kickstandproject/stripe
     check:
@@ -230,4 +238,7 @@ projects:
     post:
       - stripe-coverage
       - stripe-branch-tarball:
+        - hook-stripe-rtfd
+    pre-release:
+      - stripe-tarball:
         - hook-stripe-rtfd
