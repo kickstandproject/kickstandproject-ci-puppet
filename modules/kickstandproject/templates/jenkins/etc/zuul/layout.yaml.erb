@@ -107,6 +107,23 @@ projects:
     post:
       - ppa-dahdi-tools-experimental
 
+  - name: kickstandproject/jack
+    check:
+      - gate-jack-merge:
+        - gate-jack-docs
+        - gate-jack-pep8
+        - gate-jack-python27
+    gate:
+      - gate-jack-merge:
+        - gate-jack-docs
+        - gate-jack-pep8
+        - gate-jack-python27
+    post:
+      - jack-coverage
+      - jack-branch-tarball
+    pre-release:
+      - jack-tarball
+
   - name: kickstandproject/kickstandproject-asterisk
     check:
       - gate-kickstandproject-asterisk-merge:
