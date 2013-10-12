@@ -91,6 +91,15 @@
       - puppet-jobs
 
 - project:
+    name: python-ari
+    github-org: kickstandproject
+    node: precise
+    tarball-site: tarballs.kickstand-project.org
+
+    jobs:
+      - python-jobs
+
+- project:
     name: python-stripeclient
     github-org: kickstandproject
     node: precise

@@ -182,6 +182,23 @@ projects:
         - gate-ci-puppet-puppet-lint
         - gate-ci-puppet-puppet-syntax
 
+  - name: kickstandproject/python-ari
+    check:
+      - gate-python-ari-merge:
+        - gate-python-ari-docs
+        - gate-python-ari-pep8
+        - gate-python-ari-python27
+    gate:
+      - gate-python-ari-merge:
+        - gate-python-ari-docs
+        - gate-python-ari-pep8
+        - gate-python-air-python27
+    post:
+      - python-ari-coverage
+      - python-ari-branch-tarball
+    pre-release:
+      - python-ari-tarball
+
   - name: kickstandproject/python-stripeclient
     check:
       - gate-python-stripeclient-merge:
