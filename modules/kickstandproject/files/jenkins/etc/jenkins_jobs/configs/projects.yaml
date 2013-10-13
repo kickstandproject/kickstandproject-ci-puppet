@@ -94,10 +94,12 @@
     name: python-ari
     github-org: kickstandproject
     node: precise
+    rtfd-id: python-ari
     tarball-site: tarballs.kickstand-project.org
 
     jobs:
       - python-jobs
+      - 'hook-{name}-rtfd'
 
 - project:
     name: python-stripeclient

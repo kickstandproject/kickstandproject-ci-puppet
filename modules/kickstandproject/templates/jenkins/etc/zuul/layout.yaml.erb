@@ -195,9 +195,11 @@ projects:
         - gate-python-ari-python27
     post:
       - python-ari-coverage
-      - python-ari-branch-tarball
+      - python-ari-branch-tarball:
+        - hook-python-ari-rtfd
     pre-release:
-      - python-ari-tarball
+      - python-ari-tarball:
+        - hook-python-ari-rtfd
 
   - name: kickstandproject/python-stripeclient
     check:
