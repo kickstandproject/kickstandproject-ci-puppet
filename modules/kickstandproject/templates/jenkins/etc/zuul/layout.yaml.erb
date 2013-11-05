@@ -61,9 +61,9 @@ jobs:
     voting: false
   - name: gate-semaphore-pylint
     voting: false
-  - name: gate-stripe-pylint
+  - name: gate-payload-pylint
     voting: false
-  - name: gate-python-stripeclient-pylint
+  - name: gate-python-payloadclient-pylint
     voting: false
   - name: ^.*-merge$
     failure-message: This change was unable to be automatically merged with the current state of the repository. Please rebase your change and upload a new patchset.
@@ -201,23 +201,23 @@ projects:
       - python-ari-tarball:
         - hook-python-ari-rtfd
 
-  - name: kickstandproject/python-stripeclient
+  - name: kickstandproject/python-payloadclient
     check:
-      - gate-python-stripeclient-merge:
-        - gate-python-stripeclient-docs
-        - gate-python-stripeclient-pep8
-        - gate-python-stripeclient-pylint
-        - gate-python-stripeclient-python27
+      - gate-python-payloadclient-merge:
+        - gate-python-payloadclient-docs
+        - gate-python-payloadclient-pep8
+        - gate-python-payloadclient-pylint
+        - gate-python-payloadclient-python27
     gate:
-      - gate-python-stripeclient-merge:
-        - gate-python-stripeclient-docs
-        - gate-python-stripeclient-pep8
-        - gate-python-stripeclient-python27
+      - gate-python-payloadclient-merge:
+        - gate-python-payloadclient-docs
+        - gate-python-payloadclient-pep8
+        - gate-python-payloadclient-python27
     post:
-      - python-stripeclient-coverage
-      - python-stripeclient-branch-tarball
+      - python-payloadclient-coverage
+      - python-payloadclient-branch-tarball
     pre-release:
-      - python-stripeclient-tarball
+      - python-payloadclient-tarball
 
   - name: kickstandproject/sarlacc
     check:
@@ -259,22 +259,22 @@ projects:
       - semaphore-tarball:
         - hook-semaphore-rtfd
 
-  - name: kickstandproject/stripe
+  - name: kickstandproject/payload
     check:
-      - gate-stripe-merge:
-        - gate-stripe-docs
-        - gate-stripe-pep8
-        - gate-stripe-pylint
-        - gate-stripe-python27
+      - gate-payload-merge:
+        - gate-payload-docs
+        - gate-payload-pep8
+        - gate-payload-pylint
+        - gate-payload-python27
     gate:
-      - gate-stripe-merge:
-        - gate-stripe-docs
-        - gate-stripe-pep8
-        - gate-stripe-python27
+      - gate-payload-merge:
+        - gate-payload-docs
+        - gate-payload-pep8
+        - gate-payload-python27
     post:
-      - stripe-coverage
-      - stripe-branch-tarball:
-        - hook-stripe-rtfd
+      - payload-coverage
+      - payload-branch-tarball:
+        - hook-payload-rtfd
     pre-release:
-      - stripe-tarball:
-        - hook-stripe-rtfd
+      - payload-tarball:
+        - hook-payload-rtfd

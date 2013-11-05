@@ -102,7 +102,7 @@
       - 'hook-{name}-rtfd'
 
 - project:
-    name: python-stripeclient
+    name: python-payloadclient
     github-org: kickstandproject
     node: precise
     tarball-site: tarballs.kickstand-project.org
@@ -133,7 +133,7 @@
       - 'hook-{name}-rtfd'
 
 - project:
-    name: stripe
+    name: payload
     github-org: kickstandproject
     node: precise
     rtfd-id: 8016
