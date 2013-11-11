@@ -114,7 +114,6 @@
     name: sarlacc
     github-org: kickstandproject
     node: precise
-    rtfd-id: 6581
     tarball-site: tarballs.kickstand-project.org
 
     jobs:
@@ -125,7 +124,6 @@
     name: semaphore
     github-org: kickstandproject
     node: precise
-    rtfd-id: 5951
     tarball-site: tarballs.kickstand-project.org
 
     jobs:
@@ -136,7 +134,6 @@
     name: payload
     github-org: kickstandproject
     node: precise
-    rtfd-id: 8016
     tarball-site: tarballs.kickstand-project.org
 
     jobs:
