@@ -18,4 +18,8 @@ node 'static-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::static::init': }
 }
 
+node 'zuul-01-prod.kickstand-project.org' {
+  class { 'kickstandproject::node::zuul::init': }
+}
+
 # vim:sw=2:ts=2:expandtab

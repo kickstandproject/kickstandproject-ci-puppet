@@ -5,26 +5,16 @@
 #
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
-class kickstandproject::init(
-  $environment   = 'production',
-  $puppet_server = 'puppet-01-prod.kickstand-project.org'
-) {
+class kickstandproject::init() {
   class { 'apt::client': }
   class { 'ntp::server': }
   class { 'ssh::server': }
   class { 'sudoers::client': }
-  class { 'timezone::client': }
-
-  class { 'puppet::client':
-    options => {
-      'environment' => $environment,
-      'server'      => $puppet_server,
-    }
+  class { 'timezone::client':
+    zone => 'Etc/UTC',
   }
 
-  host { $::fqdn:
-    ensure => absent,
-  }
+  class { 'kickstandproject::node::base::init': }
 }
 
-# vim:sw=2:ts=2:expandtab:textwidth=79
+# vim:sw=2:ts=2:expandtab
