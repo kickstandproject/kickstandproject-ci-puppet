@@ -4,11 +4,6 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::node::jenkins::bootstrap {
-  apt::function::repository { 'launchpad-pabelanger-zuul':
-    components  => 'main',
-    key         => '2C9F0613',
-    url         => 'ppa.launchpad.net/pabelanger/zuul/ubuntu',
-  }
 }
 
-# vim:sw=2:ts=2:expandtab:textwidth=79
+# vim:sw=2:ts=2:expandtab

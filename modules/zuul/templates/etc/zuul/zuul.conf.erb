@@ -1,0 +1,7 @@
+<%- scope.lookupvar('zuul::server::settings_real').sort.each do |key,val| -%>
+[<%= key %>]
+<%- val.sort.each do |k,v| -%>
+<%= k %> = <%= v %>
+<%- end -%>
+
+<%- end -%>
