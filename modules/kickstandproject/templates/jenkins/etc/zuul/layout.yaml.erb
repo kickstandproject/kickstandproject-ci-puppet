@@ -59,7 +59,7 @@ pipelines:
 jobs:
   - name: gate-sarlacc-pylint
     voting: false
-  - name: gate-semaphore-pylint
+  - name: gate-wildcard-pylint
     voting: false
   - name: gate-payload-pylint
     voting: false
@@ -239,25 +239,25 @@ projects:
       - sarlacc-tarball:
         - hook-sarlacc-rtfd
 
-  - name: kickstandproject/semaphore
+  - name: kickstandproject/wildcard
     check:
-      - gate-semaphore-merge:
-        - gate-semaphore-docs
-        - gate-semaphore-pep8
-        - gate-semaphore-pylint
-        - gate-semaphore-python27
+      - gate-wildcard-merge:
+        - gate-wildcard-docs
+        - gate-wildcard-pep8
+        - gate-wildcard-pylint
+        - gate-wildcard-python27
     gate:
-      - gate-semaphore-merge:
-        - gate-semaphore-docs
-        - gate-semaphore-pep8
-        - gate-semaphore-python27
+      - gate-wildcard-merge:
+        - gate-wildcard-docs
+        - gate-wildcard-pep8
+        - gate-wildcard-python27
     post:
-      - semaphore-coverage
-      - semaphore-branch-tarball:
-        - hook-semaphore-rtfd
+      - wildcard-coverage
+      - wildcard-branch-tarball:
+        - hook-wildcard-rtfd
     pre-release:
-      - semaphore-tarball:
-        - hook-semaphore-rtfd
+      - wildcard-tarball:
+        - hook-wildcard-rtfd
 
   - name: kickstandproject/payload
     check:
