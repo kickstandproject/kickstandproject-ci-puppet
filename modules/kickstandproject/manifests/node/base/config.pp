@@ -21,7 +21,7 @@ class kickstandproject::node::base::config {
 
   class { 'puppet::client':
     options => {
-      'server' => 'puppetmaster-01',
+      'server' => 'puppetmaster',
     }
   }
 }
