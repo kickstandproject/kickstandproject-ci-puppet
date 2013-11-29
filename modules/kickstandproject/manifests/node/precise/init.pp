@@ -4,40 +4,63 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::node::precise::init {
-  $network_auto = [
-    'eth0',
-    'eth1',
-  ]
-
-  $network_interfaces = {
-    'eth0' => {
-      'method'          => 'static',
-      'address'         => '209.87.247.150',
-      'netmask'         => '255.255.255.240',
-      'gateway'         => '209.87.247.145',
-      'dns-nameservers' => '8.8.8.8',
-      'dns-search'      => 'kickstand-project.org',
-    },
-    'eth1' => {
-      'method' => 'dhcp',
-    },
-  }
-
   class { 'kickstandproject::init': }
 
   class { 'kickstandproject::node::precise::bootstrap':
     stage => 'bootstrap',
   }
 
-  class { 'kickstandproject::node::precise::config': }
+  class { 'jenkins::client': }
 
-  class { 'network::client':
-    auto       => $network_auto,
-    interfaces => $network_interfaces,
+  file { '/usr/local/jenkins':
+    ensure  => directory,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0755',
+    recurse => true,
+    source  => 'puppet:///modules/kickstandproject/jenkins/usr/local/jenkins',
   }
 
-  class { 'jenkins::client': }
-  class { 'git::client': }
+  file { '/var/lib/jenkins/.gitconfig':
+    ensure  => file,
+    group   => 'jenkins',
+    mode    => '0755',
+    owner   => 'jenkins',
+    require => Class['jenkins::client'],
+    source  => 'puppet:///modules/kickstandproject/jenkins/var/lib/jenkins/.gitconfig',
+  }
+
+  $packages = [
+    'python-dev',
+    'python-pip',
+    'rake',
+    'redis-server',
+    'rubygems',
+  ]
+
+  package { $packages:
+    ensure => present,
+  }
+
+  $pip_packages = [
+    'tox',
+  ]
+
+  package { $pip_packages:
+    ensure   => latest,
+    provider => pip,
+    require  => Package[$packages],
+  }
+
+  $gem_packages = [
+    'puppetlabs_spec_helper',
+  ]
+
+  package { $gem_packages:
+    ensure   => latest,
+    provider => gem,
+    require  => Package[$packages],
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
