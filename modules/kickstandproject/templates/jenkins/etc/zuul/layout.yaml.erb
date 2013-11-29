@@ -57,14 +57,6 @@ pipelines:
       - event: patchset-created
 
 jobs:
-  - name: gate-sarlacc-pylint
-    voting: false
-  - name: gate-wildcard-pylint
-    voting: false
-  - name: gate-payload-pylint
-    voting: false
-  - name: gate-python-payloadclient-pylint
-    voting: false
   - name: ^.*-merge$
     failure-message: This change was unable to be automatically merged with the current state of the repository. Please rebase your change and upload a new patchset.
 
@@ -206,7 +198,6 @@ projects:
       - gate-python-payloadclient-merge:
         - gate-python-payloadclient-docs
         - gate-python-payloadclient-pep8
-        - gate-python-payloadclient-pylint
         - gate-python-payloadclient-python27
     gate:
       - gate-python-payloadclient-merge:
@@ -224,7 +215,6 @@ projects:
       - gate-sarlacc-merge:
         - gate-sarlacc-docs
         - gate-sarlacc-pep8
-        - gate-sarlacc-pylint
         - gate-sarlacc-python27
     gate:
       - gate-sarlacc-merge:
@@ -244,7 +234,6 @@ projects:
       - gate-wildcard-merge:
         - gate-wildcard-docs
         - gate-wildcard-pep8
-        - gate-wildcard-pylint
         - gate-wildcard-python27
     gate:
       - gate-wildcard-merge:
@@ -264,7 +253,6 @@ projects:
       - gate-payload-merge:
         - gate-payload-docs
         - gate-payload-pep8
-        - gate-payload-pylint
         - gate-payload-python27
     gate:
       - gate-payload-merge:

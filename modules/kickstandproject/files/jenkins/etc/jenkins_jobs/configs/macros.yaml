@@ -30,11 +30,6 @@
       - shell: "set -o pipefail ; tox -v -epep8 | tee pep8.txt ; set +o pipefail"
 
 - builder:
-    name: pylint
-    builders:
-      - shell: "set -o pipefail ; tox -v -epylint | tee pylint.txt ; set +o pipefail"
-
-- builder:
     name: puppet-lint
     builders:
       - shell: "rake lint"
@@ -95,16 +90,6 @@
             max: 1
             unstable: 1
             pattern: '**/pep8.txt'
-
-- publisher:
-    name: pylint
-    publishers:
-      - violations:
-          pylint:
-            min: 0
-            max: 1
-            unstable: 1
-            pattern: '**/pylint.txt'
 
 - publisher:
     name: tarball
