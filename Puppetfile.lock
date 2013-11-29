@@ -67,14 +67,6 @@ GIT
       puppetlabs/stdlib (>= 2.2.0)
 
 GIT
-  remote: git://github.com/kickstandproject/kickstandproject-pbuilder.git
-  ref: master
-  sha: 71a8c94486d49ee78059ce973f9561dbc40f7e55
-  specs:
-    kickstandproject/pbuilder (0.0.1)
-      puppetlabs/stdlib (>= 2.2.0)
-
-GIT
   remote: git://github.com/kickstandproject/kickstandproject-puppet.git
   ref: master
   sha: 545c29b0872b049bc5d9e690248e23687415e161
@@ -137,7 +129,6 @@ DEPENDENCIES
   kickstandproject/jenkins_job_builder (>= 0)
   kickstandproject/network (>= 0)
   kickstandproject/ntp (>= 0)
-  kickstandproject/pbuilder (>= 0)
   kickstandproject/puppet (>= 0)
   kickstandproject/ssh (>= 0)
   kickstandproject/sudoers (>= 0)
