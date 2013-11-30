@@ -10,7 +10,6 @@
       - i386
 
     jobs:
-      - 'gate-{name}-merge'
       - 'gate-{name}-buildpackage'
       - 'gate-{name}-pbuilder-{arch}'
       - 'ppa-{name}-experimental'
@@ -31,7 +30,6 @@
       - amd64
 
     jobs:
-      - 'gate-{name}-merge'
       - 'gate-{name}-buildpackage'
       - 'gate-{name}-pbuilder-{arch}'
       - 'ppa-{name}-experimental'
@@ -44,7 +42,6 @@
       - amd64
 
     jobs:
-      - 'gate-{name}-merge'
       - 'gate-{name}-buildpackage'
       - 'gate-{name}-pbuilder-{arch}'
       - 'ppa-{name}-experimental'

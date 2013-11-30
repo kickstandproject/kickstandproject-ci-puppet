@@ -56,60 +56,48 @@ pipelines:
     trigger:
       - event: patchset-created
 
-jobs:
-  - name: ^.*-merge$
-    failure-message: This change was unable to be automatically merged with the current state of the repository. Please rebase your change and upload a new patchset.
-
 projects:
   - name: kickstandproject/asterisk
     check:
-      - gate-asterisk-merge:
-        - gate-asterisk-buildpackage:
-          - gate-asterisk-pbuilder-amd64
-          - gate-asterisk-pbuilder-i386
+      - gate-asterisk-buildpackage:
+        - gate-asterisk-pbuilder-amd64
+        - gate-asterisk-pbuilder-i386
     gate:
-      - gate-asterisk-merge:
-        - gate-asterisk-buildpackage:
-          - gate-asterisk-pbuilder-amd64
-          - gate-asterisk-pbuilder-i386
+      - gate-asterisk-buildpackage:
+        - gate-asterisk-pbuilder-amd64
+        - gate-asterisk-pbuilder-i386
     post:
       - ppa-asterisk-experimental
 
   - name: kickstandproject/dahdi-linux
     check:
-      - gate-dahdi-linux-merge:
-        - gate-dahdi-linux-buildpackage:
-          - gate-dahdi-linux-pbuilder-amd64
+      - gate-dahdi-linux-buildpackage:
+        - gate-dahdi-linux-pbuilder-amd64
     gate:
-      - gate-dahdi-linux-merge:
-        - gate-dahdi-linux-buildpackage:
-          - gate-dahdi-linux-pbuilder-amd64
+      - gate-dahdi-linux-buildpackage:
+        - gate-dahdi-linux-pbuilder-amd64
     post:
       - ppa-dahdi-linux-experimental
 
   - name: kickstandproject/dahdi-tools
     check:
-      - gate-dahdi-tools-merge:
-        - gate-dahdi-tools-buildpackage:
-          - gate-dahdi-tools-pbuilder-amd64
+      - gate-dahdi-tools-buildpackage:
+        - gate-dahdi-tools-pbuilder-amd64
     gate:
-      - gate-dahdi-tools-merge:
-        - gate-dahdi-tools-buildpackage:
-          - gate-dahdi-tools-pbuilder-amd64
+      - gate-dahdi-tools-buildpackage:
+        - gate-dahdi-tools-pbuilder-amd64
     post:
       - ppa-dahdi-tools-experimental
 
   - name: kickstandproject/jack
     check:
-      - gate-jack-merge:
-        - gate-jack-docs
-        - gate-jack-pep8
-        - gate-jack-python27
+      - gate-jack-docs
+      - gate-jack-pep8
+      - gate-jack-python27
     gate:
-      - gate-jack-merge:
-        - gate-jack-docs
-        - gate-jack-pep8
-        - gate-jack-python27
+      - gate-jack-docs
+      - gate-jack-pep8
+      - gate-jack-python27
     post:
       - jack-coverage
       - jack-branch-tarball
@@ -118,73 +106,61 @@ projects:
 
   - name: kickstandproject/kickstandproject-asterisk
     check:
-      - gate-kickstandproject-asterisk-merge:
-        - gate-kickstandproject-asterisk-puppet-lint
-        - gate-kickstandproject-asterisk-puppet-spec
-        - gate-kickstandproject-asterisk-puppet-syntax
+      - gate-kickstandproject-asterisk-puppet-lint
+      - gate-kickstandproject-asterisk-puppet-spec
+      - gate-kickstandproject-asterisk-puppet-syntax
     gate:
-      - gate-kickstandproject-asterisk-merge:
-        - gate-kickstandproject-asterisk-puppet-lint
-        - gate-kickstandproject-asterisk-puppet-spec
-        - gate-kickstandproject-asterisk-puppet-syntax
+      - gate-kickstandproject-asterisk-puppet-lint
+      - gate-kickstandproject-asterisk-puppet-spec
+      - gate-kickstandproject-asterisk-puppet-syntax
 
   - name: kickstandproject/kickstandproject-jeepyb
     check:
-      - gate-kickstandproject-jeepyb-merge:
-        - gate-kickstandproject-jeepyb-puppet-lint
-        - gate-kickstandproject-jeepyb-puppet-spec
-        - gate-kickstandproject-jeepyb-puppet-syntax
+      - gate-kickstandproject-jeepyb-puppet-lint
+      - gate-kickstandproject-jeepyb-puppet-spec
+      - gate-kickstandproject-jeepyb-puppet-syntax
     gate:
-      - gate-kickstandproject-jeepyb-merge:
-        - gate-kickstandproject-jeepyb-puppet-lint
-        - gate-kickstandproject-jeepyb-puppet-spec
-        - gate-kickstandproject-jeepyb-puppet-syntax
+      - gate-kickstandproject-jeepyb-puppet-lint
+      - gate-kickstandproject-jeepyb-puppet-spec
+      - gate-kickstandproject-jeepyb-puppet-syntax
 
   - name: kickstandproject/kickstandproject-pbuilder
     check:
-      - gate-kickstandproject-pbuilder-merge:
-        - gate-kickstandproject-pbuilder-puppet-lint
-        - gate-kickstandproject-pbuilder-puppet-spec
-        - gate-kickstandproject-pbuilder-puppet-syntax
+      - gate-kickstandproject-pbuilder-puppet-lint
+      - gate-kickstandproject-pbuilder-puppet-spec
+      - gate-kickstandproject-pbuilder-puppet-syntax
     gate:
-      - gate-kickstandproject-pbuilder-merge:
-        - gate-kickstandproject-pbuilder-puppet-lint
-        - gate-kickstandproject-pbuilder-puppet-spec
-        - gate-kickstandproject-pbuilder-puppet-syntax
+      - gate-kickstandproject-pbuilder-puppet-lint
+      - gate-kickstandproject-pbuilder-puppet-spec
+      - gate-kickstandproject-pbuilder-puppet-syntax
 
   - name: kickstandproject/kickstandproject-puppet
     check:
-      - gate-kickstandproject-puppet-merge:
-        - gate-kickstandproject-puppet-puppet-lint
-        - gate-kickstandproject-puppet-puppet-spec
-        - gate-kickstandproject-puppet-puppet-syntax
+      - gate-kickstandproject-puppet-puppet-lint
+      - gate-kickstandproject-puppet-puppet-spec
+      - gate-kickstandproject-puppet-puppet-syntax
     gate:
-      - gate-kickstandproject-puppet-merge:
-        - gate-kickstandproject-puppet-puppet-lint
-        - gate-kickstandproject-puppet-puppet-spec
-        - gate-kickstandproject-puppet-puppet-syntax
+      - gate-kickstandproject-puppet-puppet-lint
+      - gate-kickstandproject-puppet-puppet-spec
+      - gate-kickstandproject-puppet-puppet-syntax
 
   - name: kickstandproject/kickstandproject-ci-puppet
     check:
-      - gate-ci-puppet-merge:
-        - gate-ci-puppet-puppet-lint
-        - gate-ci-puppet-puppet-syntax
+      - gate-ci-puppet-puppet-lint
+      - gate-ci-puppet-puppet-syntax
     gate:
-      - gate-ci-puppet-merge:
-        - gate-ci-puppet-puppet-lint
-        - gate-ci-puppet-puppet-syntax
+      - gate-ci-puppet-puppet-lint
+      - gate-ci-puppet-puppet-syntax
 
   - name: kickstandproject/python-ari
     check:
-      - gate-python-ari-merge:
-        - gate-python-ari-docs
-        - gate-python-ari-pep8
-        - gate-python-ari-python27
+      - gate-python-ari-docs
+      - gate-python-ari-pep8
+      - gate-python-ari-python27
     gate:
-      - gate-python-ari-merge:
-        - gate-python-ari-docs
-        - gate-python-ari-pep8
-        - gate-python-ari-python27
+      - gate-python-ari-docs
+      - gate-python-ari-pep8
+      - gate-python-ari-python27
     post:
       - python-ari-coverage
       - python-ari-branch-tarball:
@@ -195,15 +171,13 @@ projects:
 
   - name: kickstandproject/python-payloadclient
     check:
-      - gate-python-payloadclient-merge:
-        - gate-python-payloadclient-docs
-        - gate-python-payloadclient-pep8
-        - gate-python-payloadclient-python27
+      - gate-python-payloadclient-docs
+      - gate-python-payloadclient-pep8
+      - gate-python-payloadclient-python27
     gate:
-      - gate-python-payloadclient-merge:
-        - gate-python-payloadclient-docs
-        - gate-python-payloadclient-pep8
-        - gate-python-payloadclient-python27
+      - gate-python-payloadclient-docs
+      - gate-python-payloadclient-pep8
+      - gate-python-payloadclient-python27
     post:
       - python-payloadclient-coverage
       - python-payloadclient-branch-tarball
@@ -212,15 +186,13 @@ projects:
 
   - name: kickstandproject/sarlacc
     check:
-      - gate-sarlacc-merge:
-        - gate-sarlacc-docs
-        - gate-sarlacc-pep8
-        - gate-sarlacc-python27
+      - gate-sarlacc-docs
+      - gate-sarlacc-pep8
+      - gate-sarlacc-python27
     gate:
-      - gate-sarlacc-merge:
-        - gate-sarlacc-docs
-        - gate-sarlacc-pep8
-        - gate-sarlacc-python27
+      - gate-sarlacc-docs
+      - gate-sarlacc-pep8
+      - gate-sarlacc-python27
     post:
       - sarlacc-coverage
       - sarlacc-branch-tarball:
@@ -231,15 +203,13 @@ projects:
 
   - name: kickstandproject/wildcard
     check:
-      - gate-wildcard-merge:
-        - gate-wildcard-docs
-        - gate-wildcard-pep8
-        - gate-wildcard-python27
+      - gate-wildcard-docs
+      - gate-wildcard-pep8
+      - gate-wildcard-python27
     gate:
-      - gate-wildcard-merge:
-        - gate-wildcard-docs
-        - gate-wildcard-pep8
-        - gate-wildcard-python27
+      - gate-wildcard-docs
+      - gate-wildcard-pep8
+      - gate-wildcard-python27
     post:
       - wildcard-coverage
       - wildcard-branch-tarball:
@@ -250,15 +220,13 @@ projects:
 
   - name: kickstandproject/payload
     check:
-      - gate-payload-merge:
-        - gate-payload-docs
-        - gate-payload-pep8
-        - gate-payload-python27
+      - gate-payload-docs
+      - gate-payload-pep8
+      - gate-payload-python27
     gate:
-      - gate-payload-merge:
-        - gate-payload-docs
-        - gate-payload-pep8
-        - gate-payload-python27
+      - gate-payload-docs
+      - gate-payload-pep8
+      - gate-payload-python27
     post:
       - payload-coverage
       - payload-branch-tarball:
