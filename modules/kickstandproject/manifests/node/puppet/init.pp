@@ -38,8 +38,9 @@ class kickstandproject::node::puppet::init {
   file { '/var/lib/puppet/reports':
     ensure  => directory,
     group   => 'puppet',
-    mode    => '0644',
+    mode    => '0640',
     owner   => 'puppet',
+    recurse => true,
     require => Class['puppet::server'],
   }
 
