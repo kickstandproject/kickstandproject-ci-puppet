@@ -30,3 +30,5 @@
       numToKeep: -1
       artifactDaysToKeep: -1
       artifactNumToKeep: -1
+
+    zuul-url: http://zuul.kickstand-project.org:8001/jenkins_endpoint
