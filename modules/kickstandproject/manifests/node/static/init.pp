@@ -10,7 +10,12 @@ class kickstandproject::node::static::init {
     stage => 'bootstrap',
   }
 
-  class { 'kickstandproject::node::static::config': }
+  class { 'apache': }
+
+  apache::vhost { 'tarballs.kickstand-project.org':
+    port    => '80',
+    docroot => '/srv/static/tarballs/',
+  }
 }
 
-# vim:sw=2:ts=2:expandtab:textwidth=79
+# vim:sw=2:ts=2:expandtab

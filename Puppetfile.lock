@@ -1,14 +1,8 @@
 FORGE
   remote: http://forge.puppetlabs.com
   specs:
+    puppetlabs/concat (1.0.0-rc1)
     puppetlabs/stdlib (4.1.0)
-
-GIT
-  remote: git://github.com/kickstandproject/kickstandproject-apache.git
-  ref: master
-  sha: 7dfd3eed26313a4f77809a2b219fae9eec66bbdd
-  specs:
-    kickstandproject/apache (0.0.1)
 
 GIT
   remote: git://github.com/kickstandproject/kickstandproject-apt.git
@@ -105,6 +99,15 @@ GIT
     openstack-infra/vcsrepo (0.0.8)
 
 GIT
+  remote: git://github.com/puppetlabs/puppetlabs-apache.git
+  ref: 0.9.0
+  sha: 83401079053dca11d61945bd9beef9ecf7576cbf
+  specs:
+    puppetlabs/apache (0.9.0)
+      puppetlabs/concat (>= 1.0.0)
+      puppetlabs/stdlib (>= 2.4.0)
+
+GIT
   remote: git://github.com/puppetlabs/puppetlabs-mysql.git
   ref: 0.6.1
   sha: c8f9880aea3439c4e2f9fc0a6731c9bef344b3ee
@@ -121,7 +124,6 @@ GIT
       puppetlabs/stdlib (>= 3.0.0)
 
 DEPENDENCIES
-  kickstandproject/apache (>= 0)
   kickstandproject/apt (>= 0)
   kickstandproject/dhcp (>= 0)
   kickstandproject/git (>= 0)
@@ -134,6 +136,7 @@ DEPENDENCIES
   kickstandproject/sudoers (>= 0)
   kickstandproject/timezone (>= 0)
   openstack-infra/vcsrepo (>= 0)
+  puppetlabs/apache (>= 0)
   puppetlabs/mysql (>= 0)
   ripienaar/concat (>= 0)
 

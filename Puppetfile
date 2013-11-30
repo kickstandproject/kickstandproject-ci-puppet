@@ -2,9 +2,6 @@ forge "http://forge.puppetlabs.com"
 
 path ".modules"
 
-mod 'kickstandproject/apache',
-  :git => 'git://github.com/kickstandproject/kickstandproject-apache.git'
-
 mod 'kickstandproject/apt',
   :git => 'git://github.com/kickstandproject/kickstandproject-apt.git'
 
@@ -41,6 +38,10 @@ mod 'kickstandproject/timezone',
 # Other modules we depend on
 mod 'openstack-infra/vcsrepo',
   :git => 'git://github.com/openstack-infra/puppet-vcsrepo.git'
+
+mod 'puppetlabs/apache',
+  :git => 'git://github.com/puppetlabs/puppetlabs-apache.git',
+  :ref => '0.9.0'
 
 mod 'puppetlabs/mysql',
   :git => 'git://github.com/puppetlabs/puppetlabs-mysql.git',
