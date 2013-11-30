@@ -21,7 +21,8 @@ class kickstandproject::node::base::config {
 
   class { 'puppet::client':
     options => {
-      'server' => 'puppet',
+      'runinterval' => '600',
+      'server'      => 'puppet',
     }
   }
 }
