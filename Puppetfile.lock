@@ -63,7 +63,7 @@ GIT
 GIT
   remote: git://github.com/kickstandproject/kickstandproject-puppet.git
   ref: master
-  sha: 545c29b0872b049bc5d9e690248e23687415e161
+  sha: eb4da7d109d0f2292c2f432b81225c80d33d4f5c
   specs:
     kickstandproject/puppet (0.0.7)
       puppetlabs/stdlib (>= 2.2.0)

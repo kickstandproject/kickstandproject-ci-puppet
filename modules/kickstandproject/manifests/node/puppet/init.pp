@@ -30,7 +30,7 @@ class kickstandproject::node::puppet::init {
 
   file { '/etc/puppet/hiera.yaml':
     ensure  => file,
-    notify  => Class['apache::common::service'],
+    notify  => Class['puppet::server::service'],
     require => Class['puppet::server'],
     source  => 'puppet:///modules/kickstandproject/puppet/etc/puppet/hiera.yaml',
   }
