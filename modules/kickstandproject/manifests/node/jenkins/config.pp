@@ -12,20 +12,6 @@ class kickstandproject::node::jenkins::config {
     source  => 'puppet:///modules/kickstandproject/jenkins/etc/jenkins_jobs/configs',
   }
 
-  # TODO: Move into kickstandproject-zuul
-  user { 'zuul':
-    ensure     => present,
-    home       => '/var/lib/zuul',
-    managehome => true,
-    shell      => '/bin/false',
-    system     => true,
-  }
-
-  # TODO: Move this into kickstandproject-zuul
-  file { '/etc/zuul/layout.yaml':
-    content => template('kickstandproject/jenkins/etc/zuul/layout.yaml.erb'),
-  }
-
   # TODO: Move into kickstandproject-gerritbot
   file { '/etc/gerritbot/channels.yaml':
     content => template('kickstandproject/jenkins/etc/gerritbot/channels.yaml.erb'),
