@@ -64,6 +64,12 @@ class kickstandproject::node::puppet::init {
     cwd         => '/opt/kickstandproject-ci-puppet/production',
     refreshonly => true,
   }
+
+  firewall { '8140 accept - puppetmaster':
+    action => 'accept',
+    port   => '8140',
+    proto  => 'tcp',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab

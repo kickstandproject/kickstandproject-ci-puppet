@@ -14,6 +14,12 @@ class kickstandproject::node::puppetdb::init {
     listen_address     => $::ipaddress,
     ssl_listen_address => $::ipaddress,
   }
+
+  firewall { '8081 accept - puppetdb':
+    action => 'accept',
+    port   => '8081',
+    proto  => 'tcp',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
