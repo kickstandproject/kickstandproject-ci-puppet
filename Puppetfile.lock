@@ -4,7 +4,6 @@ FORGE
     puppetlabs/apt (1.4.0)
       puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/concat (1.0.0-rc1)
-    puppetlabs/firewall (0.4.2)
     puppetlabs/inifile (1.0.0)
     puppetlabs/postgresql (3.2.0)
       puppetlabs/apt (< 2.0.0, >= 1.1.0)
@@ -117,6 +116,13 @@ GIT
       puppetlabs/stdlib (>= 2.4.0)
 
 GIT
+  remote: git://github.com/puppetlabs/puppetlabs-firewall.git
+  ref: 0.3.1
+  sha: d6654abc7d104dbaac223b2f8f4dd67c0213cec5
+  specs:
+    puppetlabs/firewall (0.3.1)
+
+GIT
   remote: git://github.com/puppetlabs/puppetlabs-mysql.git
   ref: 0.6.1
   sha: c8f9880aea3439c4e2f9fc0a6731c9bef344b3ee
@@ -157,6 +163,7 @@ DEPENDENCIES
   kickstandproject/timezone (>= 0)
   openstack-infra/vcsrepo (>= 0)
   puppetlabs/apache (>= 0)
+  puppetlabs/firewall (>= 0)
   puppetlabs/mysql (>= 0)
   puppetlabs/puppetdb (>= 0)
   ripienaar/concat (>= 0)
