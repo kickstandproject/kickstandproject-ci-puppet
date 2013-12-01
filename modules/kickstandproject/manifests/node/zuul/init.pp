@@ -43,6 +43,12 @@ class kickstandproject::node::zuul::init {
     ensure  => running,
     require => File['/etc/init/zuul.conf'],
   }
+
+  firewall { '8001 accept - zuul':
+    action => 'accept',
+    port   => '8001',
+    proto  => 'tcp',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
