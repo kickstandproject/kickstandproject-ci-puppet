@@ -25,7 +25,7 @@ class kickstandproject::node::puppet::init {
   }
 
   package { 'puppetdb-terminus':
-    ensure => true,
+    ensure => present,
   }
 
   vcsrepo { '/opt/kickstandproject-ci-puppet/production':
