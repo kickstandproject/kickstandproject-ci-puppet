@@ -15,9 +15,17 @@ class kickstandproject::node::puppet::init {
       '*.kickstand-project.org',
     ],
     options  => {
-      'manifestdir' => '/opt/kickstandproject-ci-puppet/$environment/manifests',
-      'modulepath'  => '/opt/kickstandproject-ci-puppet/$environment/modules:/opt/kickstandproject-ci-puppet/$environment/.modules',
-    }
+      'manifestdir'          => '/opt/kickstandproject-ci-puppet/$environment/manifests',
+      'modulepath'           => '/opt/kickstandproject-ci-puppet/$environment/modules:/opt/kickstandproject-ci-puppet/$environment/.modules',
+      'report'               => true,
+      'reports'              => 'puppetdb',
+      'storeconfigs'         => true,
+      'storeconfigs_backend' => 'puppetdb',
+     }
+   }
+
+  package { 'puppetdb-terminus':
+    ensure => true,
   }
 
   vcsrepo { '/opt/kickstandproject-ci-puppet/production':
@@ -26,6 +34,13 @@ class kickstandproject::node::puppet::init {
     provider => git,
     revision => 'master',
     source   => 'git://github.com/kickstandproject/kickstandproject-ci-puppet.git',
+  }
+
+  file { '/etc/puppet/puppetdb.conf':
+    ensure  => file,
+    notify  => Class['puppet::server::service'],
+    require => Class['puppet::server'],
+    source  => 'puppet:///modules/kickstandproject/puppet/etc/puppet/puppetdb.conf',
   }
 
   file { '/etc/puppet/hiera.yaml':

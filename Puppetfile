@@ -47,5 +47,9 @@ mod 'puppetlabs/mysql',
   :git => 'git://github.com/puppetlabs/puppetlabs-mysql.git',
   :ref => '0.6.1'
 
+mod 'puppetlabs/puppetdb',
+  :git => 'git://github.com/puppetlabs/puppetlabs-puppetdb.git',
+  :ref => '3.0.0'
+
 mod 'ripienaar/concat',
   :git => 'git://github.com/ripienaar/puppet-concat.git'
