@@ -24,6 +24,7 @@
           timeout: 30
           fail: true
       - timestamps
+      - workspace-cleanup
 
     logrotate:
       daysToKeep: 1
