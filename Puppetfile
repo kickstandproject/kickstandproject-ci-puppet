@@ -43,6 +43,10 @@ mod 'puppetlabs/apache',
   :git => 'git://github.com/puppetlabs/puppetlabs-apache.git',
   :ref => '0.9.0'
 
+mod 'puppetlabs/firewall',
+  :git => 'git://github.com/puppetlabs/puppetlabs-firewall.git',
+  :ref => '0.3.1'
+
 mod 'puppetlabs/mysql',
   :git => 'git://github.com/puppetlabs/puppetlabs-mysql.git',
   :ref => '0.6.1'
