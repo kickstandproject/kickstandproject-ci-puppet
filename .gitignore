@@ -1,4 +1,2 @@
 .modules/*
-.librarian/*
-.tmp/*
 spec/fixtures/modules/*

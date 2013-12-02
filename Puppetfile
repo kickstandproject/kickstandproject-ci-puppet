@@ -1,7 +1,5 @@
 forge "http://forge.puppetlabs.com"
 
-path ".modules"
-
 mod 'kickstandproject/apt',
   :git => 'git://github.com/kickstandproject/kickstandproject-apt.git'
 
@@ -50,6 +48,10 @@ mod 'puppetlabs/firewall',
 mod 'puppetlabs/mysql',
   :git => 'git://github.com/puppetlabs/puppetlabs-mysql.git',
   :ref => '0.6.1'
+
+mod 'puppetlabs/postgresql',
+  :git => 'git://github.com/puppetlabs/puppetlabs-postgresql.git',
+  :ref => '3.2.0'
 
 mod 'puppetlabs/puppetdb',
   :git => 'git://github.com/puppetlabs/puppetlabs-puppetdb.git',
