@@ -53,7 +53,10 @@ class kickstandproject::node::jenkins::init {
 
   file { '/etc/jenkins_jobs/configs':
     ensure  => directory,
+    group   => 'root',
+    mode    => '0644',
     notify  => Exec['jenkins-jobs-update'],
+    owner   => 'root',
     recurse => true,
     require => Class['jenkins_job_builder::client'],
     source  => 'puppet:///modules/kickstandproject/jenkins/etc/jenkins_jobs/configs',
