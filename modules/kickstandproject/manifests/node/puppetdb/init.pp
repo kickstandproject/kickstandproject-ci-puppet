@@ -15,6 +15,12 @@ class kickstandproject::node::puppetdb::init {
     ssl_listen_address => $::ipaddress,
   }
 
+  firewall { '8080 accept - puppetdb':
+    action => 'accept',
+    port   => '8080',
+    proto  => 'tcp',
+  }
+
   firewall { '8081 accept - puppetdb':
     action => 'accept',
     port   => '8081',
