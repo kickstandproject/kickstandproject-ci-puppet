@@ -57,5 +57,9 @@ mod 'puppetlabs/puppetdb',
   :git => 'git://github.com/puppetlabs/puppetlabs-puppetdb.git',
   :ref => '3.0.0'
 
+mod 'puppetlabs/stdlib',
+  :git => 'git://github.com/puppetlabs/puppetlabs-stdlib.git',
+  :ref => '4.1.0'
+
 mod 'ripienaar/concat',
   :git => 'git://github.com/ripienaar/puppet-concat.git'
