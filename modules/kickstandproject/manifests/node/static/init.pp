@@ -16,6 +16,12 @@ class kickstandproject::node::static::init {
     port    => '80',
     docroot => '/srv/static/tarballs/',
   }
+
+  firewall { '80 accept - apache':
+    action => 'accept',
+    port   => '80',
+    proto  => 'tcp',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
