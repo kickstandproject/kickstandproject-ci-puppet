@@ -1,0 +1,8 @@
+Approved+1: Paul Belanger <paul.belanger@polybeacon.com>
+Code-Review+2: Paul Belanger <paul.belanger@polybeacon.com>
+Verified+2: Jenkins <jenkins@kickstand-project.org>
+Submitted-by: Jenkins <jenkins@kickstand-project.org>
+Submitted-at: Mon, 02 Dec 2013 05:36:45 +0000
+Reviewed-on: http://review.kickstand-project.org/470
+Project: kickstandproject/kickstandproject-ci-puppet
+Branch: refs/heads/master
