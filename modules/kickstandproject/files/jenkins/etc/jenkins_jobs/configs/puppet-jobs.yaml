@@ -11,9 +11,6 @@
       - gerrit-git-prep
       - puppet-lint
 
-    publishers:
-      - console-log
-
     node: '{node}'
 
 
@@ -27,9 +24,6 @@
       - gerrit-git-prep
       - puppet-spec
 
-    publishers:
-      - console-log
-
     node: '{node}'
 
 
@@ -42,9 +36,6 @@
     builders:
       - gerrit-git-prep
       - puppet-syntax
-
-    publishers:
-      - console-log
 
     node: '{node}'
 

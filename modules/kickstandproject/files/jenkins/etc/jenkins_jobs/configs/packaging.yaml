@@ -15,7 +15,6 @@
     publishers:
       - dpkg-buildpackage:
           artifacts: 'debian/tmp/{name}_*'
-      - console-log
 
     node: '{node}'
 
@@ -40,7 +39,6 @@
     publishers:
       - pbuilder:
           artifacts: 'result/*'
-      - console-log
 
     node: '{node}'
 
@@ -57,8 +55,5 @@
       - shell: |
           dput ppa:ksp-apus/experimental debian/tmp/{name}_*.changes
           rm -rf debian
-
-    publishers:
-      - console-log
 
     node: '{node}'
