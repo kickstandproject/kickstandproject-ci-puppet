@@ -11,9 +11,6 @@
       - gerrit-git-prep
       - coverage
 
-    publishers:
-      - console-log
-
     node: '{node}'
 
 
@@ -29,7 +26,6 @@
 
     publishers:
       - pep8
-      - console-log
 
     node: '{node}'
 
@@ -50,9 +46,6 @@
       - gerrit-git-prep
       - python27
 
-    publishers:
-      - console-log
-
     node: '{node}'
 
 
@@ -65,9 +58,6 @@
     builders:
       - gerrit-git-prep
       - docs
-
-    publishers:
-      - console-log
 
     node: '{node}'
 
@@ -88,7 +78,6 @@
       - tarball:
           project: '{name}'
           site: '{tarball-site}'
-      - console-log-post
 
 
 - job-template:
@@ -114,7 +103,6 @@
       - tarball:
           project: '{name}'
           site: '{tarball-site}'
-      - console-log
 
 
 - job-group:
