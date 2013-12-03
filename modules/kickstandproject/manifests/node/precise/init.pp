@@ -31,6 +31,8 @@ class kickstandproject::node::precise::init {
   }
 
   $packages = [
+    'libxml2-dev',
+    'libxslt1-dev',
     'python-dev',
     'python-pip',
     'rake',
