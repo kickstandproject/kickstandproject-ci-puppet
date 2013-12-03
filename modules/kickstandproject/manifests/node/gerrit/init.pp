@@ -55,6 +55,9 @@ class kickstandproject::node::gerrit::init {
 
   file { '/home/gerrit2/acls':
     ensure  => directory,
+    group   => 'gerrit2',
+    mode    => '0640',
+    owner   => 'gerrit2',
     recurse => true,
     require => User['gerrit2'],
     source  => 'puppet:///modules/kickstandproject/gerrit/home/gerrit2/acls',
@@ -78,6 +81,7 @@ class kickstandproject::node::gerrit::init {
   }
 
   $pip_packages = [
+    'gerritbot',
     'tox',
   ]
 
@@ -85,6 +89,37 @@ class kickstandproject::node::gerrit::init {
     ensure   => latest,
     provider => pip,
     require  => Package[$packages],
+  }
+
+  file { '/var/log/gerritbot':
+    ensure  => directory,
+    group   => 'adm',
+    mode    => '0640',
+    owner   => 'gerrit2',
+    require => User['gerrit2'],
+  }
+
+  file { '/etc/gerritbot':
+    ensure  => directory,
+    group   => 'gerrit2',
+    mode    => '0640',
+    owner   => 'gerrit2',
+    recurse => true,
+    require => User['gerrit2'],
+    source  => 'puppet:///modules/kickstandproject/gerrit/etc/gerritbot',
+  }
+
+  file { '/etc/init/gerritbot.conf':
+    ensure  => file,
+    group   => 'root',
+    mode    => '0755',
+    owner   => 'root',
+    source  => 'puppet:///modules/kickstandproject/gerrit/etc/init/gerritbot.conf',
+  }
+
+  service { 'gerritbot':
+    ensure  => running,
+    require => File['/etc/init/gerritbot.conf'],
   }
 }
 
