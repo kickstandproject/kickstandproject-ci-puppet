@@ -2,6 +2,10 @@ node 'gerrit-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::gerrit::init': }
 }
 
+node 'graphite-01-prod.kickstand-project.org' {
+  class { 'kickstandproject::node::graphite::init': }
+}
+
 node 'jenkins-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::jenkins::init': }
 }
