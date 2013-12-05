@@ -26,6 +26,10 @@ node 'static-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::static::init': }
 }
 
+node 'wiki-01-prod.kickstand-project.org' {
+  class { 'kickstandproject::node::wiki::init': }
+}
+
 node 'zuul-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::zuul::init': }
 }
