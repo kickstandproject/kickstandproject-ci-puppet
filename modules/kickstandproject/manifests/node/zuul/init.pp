@@ -75,8 +75,22 @@ class kickstandproject::node::zuul::init {
     require => File['/etc/zuul'],
   }
 
+  file { '/etc/default/zuul':
+    ensure => file,
+    group  => 'root',
+    mode   => '0644',
+    notify => File['/etc/init/zuul.conf'],
+    owner  => 'root',
+    source => 'puppet:///modules/kickstandproject/zuul/etc/default/zuul',
+  }
+
   file { '/etc/init/zuul.conf':
     ensure  => file,
+    group   => 'root',
+    mode    => '0644',
+    notify  => Service['zuul'],
+    owner   => 'root',
+    require => File['/etc/default/zuul'],
     source  => 'puppet:///modules/kickstandproject/zuul/etc/init/zuul.conf',
   }
 

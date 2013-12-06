@@ -1,0 +1,2 @@
+STATSD_HOST=graphite.kickstand-project.org
+STATSD_PORT=8125
