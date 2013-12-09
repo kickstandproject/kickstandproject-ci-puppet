@@ -19,6 +19,14 @@ class kickstandproject::node::base::init {
     port   => '22',
     proto  => 'tcp',
   }
+
+  $packages = [
+    'exim4',
+  ]
+
+  package { $packages:
+    ensure => present,
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
