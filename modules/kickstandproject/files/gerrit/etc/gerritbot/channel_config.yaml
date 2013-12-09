@@ -5,5 +5,8 @@ kickstand-dev:
       - x-vrif-minus-2
     projects:
       - kickstandproject/kickstandproject-ci-puppet
+      - kickstandproject/payload
+      - kickstandproject/python-payloadclient
+      - kickstandproject/wildcard
     branches:
       - master
