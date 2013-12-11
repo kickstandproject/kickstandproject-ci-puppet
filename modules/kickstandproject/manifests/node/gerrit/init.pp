@@ -63,6 +63,23 @@ class kickstandproject::node::gerrit::init {
     source  => 'puppet:///modules/kickstandproject/gerrit/home/gerrit2/acls',
   }
 
+  file { '/home/gerrit2/review_site':
+    ensure  => directory,
+    group   => 'gerrit2',
+    mode    => '0640',
+    owner   => 'gerrit2',
+    require => User['gerrit2'],
+  }
+
+  file { '/home/gerrit2/review_site/hooks':
+    ensure  => directory,
+    group   => 'gerrit2',
+    mode    => '0755',
+    owner   => 'gerrit2',
+    require => File['/home/gerrit2/review_site'],
+    source  => 'puppet:///modules/kickstandproject/gerrit/home/gerrit2/review_site/hooks',
+  }
+
   file { '/home/gerrit2/projects.yaml':
     ensure  => file,
     content => template('kickstandproject/gerrit/home/gerrit2/projects.yaml.erb'),
