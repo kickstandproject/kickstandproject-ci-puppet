@@ -6,7 +6,9 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::init() {
-  class { 'apt::client': }
+  class { 'apt::client':
+    mirror => 'mirror.rackspace.com',
+  }
   class { 'ntp::server': }
   class { 'ssh::server': }
   class { 'sudoers::client': }
