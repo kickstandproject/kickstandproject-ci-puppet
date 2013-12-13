@@ -26,6 +26,10 @@ node 'puppetdb-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::puppetdb::init': }
 }
 
+node 'shell-01-prod.kickstand-project.org' {
+  class { 'kickstandproject::node::shell::init': }
+}
+
 node 'static-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::static::init': }
 }
