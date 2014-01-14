@@ -7,12 +7,6 @@
       - shell: "/usr/local/jenkins/slave_scripts/gerrit-git-prep.sh review.kickstand-project.org"
 
 - builder:
-    name: buildpackage
-    builders:
-      - shell: |
-          /usr/local/jenkins/slave_scripts/ppa_script.sh
-
-- builder:
     name: coverage
     builders:
       - shell: |
@@ -66,13 +60,6 @@
           md5sum dist/*
 
 # ============================================================================
-
-- publisher:
-    name: dpkg-buildpackage
-    publishers:
-      - archive:
-          artifacts: '{artifacts}'
-          latest_only: true
 
 - publisher:
     name: pbuilder

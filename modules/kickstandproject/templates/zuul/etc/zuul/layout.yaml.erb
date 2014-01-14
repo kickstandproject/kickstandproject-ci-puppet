@@ -59,35 +59,21 @@ pipelines:
 projects:
   - name: kickstandproject/asterisk
     check:
-      - gate-asterisk-buildpackage:
-        - gate-asterisk-pbuilder-amd64
-        - gate-asterisk-pbuilder-i386
+      - gate-noop
     gate:
-      - gate-asterisk-buildpackage:
-        - gate-asterisk-pbuilder-amd64
-        - gate-asterisk-pbuilder-i386
-    post:
-      - ppa-asterisk-experimental
+      - gate-noop
 
   - name: kickstandproject/dahdi-linux
     check:
-      - gate-dahdi-linux-buildpackage:
-        - gate-dahdi-linux-pbuilder-amd64
+      - gate-noop
     gate:
-      - gate-dahdi-linux-buildpackage:
-        - gate-dahdi-linux-pbuilder-amd64
-    post:
-      - ppa-dahdi-linux-experimental
+      - gate-noop
 
   - name: kickstandproject/dahdi-tools
     check:
-      - gate-dahdi-tools-buildpackage:
-        - gate-dahdi-tools-pbuilder-amd64
+      - gate-noop
     gate:
-      - gate-dahdi-tools-buildpackage:
-        - gate-dahdi-tools-pbuilder-amd64
-    post:
-      - ppa-dahdi-tools-experimental
+      - gate-noop
 
   - name: kickstandproject/jack
     check:
