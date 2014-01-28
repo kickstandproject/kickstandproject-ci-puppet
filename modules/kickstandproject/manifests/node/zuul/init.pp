@@ -72,6 +72,7 @@ class kickstandproject::node::zuul::init {
   file { '/etc/zuul/layout.yaml':
     ensure  => file,
     content => template('kickstandproject/zuul/etc/zuul/layout.yaml.erb'),
+    notify  => Service['zuul'],
     require => File['/etc/zuul'],
   }
 
