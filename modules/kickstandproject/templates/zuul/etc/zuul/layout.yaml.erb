@@ -170,6 +170,23 @@ projects:
     pre-release:
       - python-payloadclient-tarball
 
+  - name: kickstandproject/ripcord
+    check:
+      - gate-ripcord-docs
+      - gate-ripcord-pep8
+      - gate-ripcord-python27
+    gate:
+      - gate-ripcord-docs
+      - gate-ripcord-pep8
+      - gate-ripcord-python27
+    post:
+      - ripcord-coverage
+      - ripcord-branch-tarball:
+        - hook-ripcord-rtfd
+    pre-release:
+      - ripcord-tarball:
+        - hook-ripcord-rtfd
+
   - name: kickstandproject/sarlacc
     check:
       - gate-sarlacc-docs
