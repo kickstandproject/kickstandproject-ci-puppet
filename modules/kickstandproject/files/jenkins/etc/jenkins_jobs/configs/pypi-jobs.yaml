@@ -10,9 +10,6 @@
       - shell: |
           /usr/local/jenkins/slave_scripts/pypi-upload.sh {name} {tarball-site}
 
-    publishers:
-      - console-log
-
 
 - job-group:
     name: pypi-jobs
