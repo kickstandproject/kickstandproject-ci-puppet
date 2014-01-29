@@ -38,6 +38,16 @@ class kickstandproject::node::jenkins::init {
     ensure => present,
   }
 
+  $pip_packages = [
+    'twine',
+  ]
+
+  package { $pip_packages:
+    ensure   => latest,
+    provider => pip,
+    require  => Package['python-pip'],
+  }
+
   $jjb_package = {
     ensure   => '0.6.0',
     provider => 'pip',
