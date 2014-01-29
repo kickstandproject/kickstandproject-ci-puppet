@@ -154,7 +154,10 @@ projects:
     pre-release:
       - python-ari-tarball:
         - hook-python-ari-rtfd
-      - python-ari-pypi-upload
+    release:
+      - python-ari-tarball:
+        - hook-python-ari-rtfd
+        - python-ari-pypi-upload
 
   - name: kickstandproject/python-payloadclient
     check:
