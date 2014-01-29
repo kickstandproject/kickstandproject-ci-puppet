@@ -102,11 +102,16 @@ class kickstandproject::node::gerrit::init {
 
   $pip_packages = [
     'gerritbot',
-    'tox',
   ]
 
   package { $pip_packages:
     ensure   => latest,
+    provider => pip,
+    require  => Package[$packages],
+  }
+
+  package { 'tox':
+    ensure   => '1.6.1',
     provider => pip,
     require  => Package[$packages],
   }

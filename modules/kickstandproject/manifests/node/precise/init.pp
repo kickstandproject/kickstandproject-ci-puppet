@@ -44,12 +44,8 @@ class kickstandproject::node::precise::init {
     ensure => present,
   }
 
-  $pip_packages = [
-    'tox',
-  ]
-
-  package { $pip_packages:
-    ensure   => latest,
+  package { 'tox':
+    ensure   => '1.6.1',
     provider => pip,
     require  => Package[$packages],
   }
