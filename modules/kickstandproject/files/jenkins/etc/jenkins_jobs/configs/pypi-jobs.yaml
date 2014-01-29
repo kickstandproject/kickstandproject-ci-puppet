@@ -3,7 +3,7 @@
 #
 - job-template:
     name: '{name}-pypi-upload'
-    node: pypi
+    node: precise
 
     triggers:
       - zuul-post
