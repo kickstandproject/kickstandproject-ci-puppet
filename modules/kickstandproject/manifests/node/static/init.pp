@@ -12,9 +12,25 @@ class kickstandproject::node::static::init {
 
   class { 'apache': }
 
+  user { 'captpants':
+    ensure     => present,
+    home       => '/home/captpants',
+    managehome => true,
+    shell      => '/bin/bash',
+  }
+
+  file { '/srv/static/tarballs':
+    ensure  => directory,
+    group   => 'captpants',
+    mode    => '0644',
+    owner   => 'captpants',
+    require => User['captpants'],
+  }
+
   apache::vhost { 'tarballs.kickstand-project.org':
+    docroot => '/srv/static/tarballs',
     port    => '80',
-    docroot => '/srv/static/tarballs/',
+    require => File['/srv/static/tarballs'],
   }
 
   firewall { '80 accept - apache':
