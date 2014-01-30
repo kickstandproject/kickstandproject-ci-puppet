@@ -85,8 +85,17 @@ class kickstandproject::node::gerrit::init {
     content => template('kickstandproject/gerrit/home/gerrit2/projects.yaml.erb'),
     group   => 'gerrit2',
     mode    => '0640',
+    notify  => Exec['manage-projects'],
     owner   => 'gerrit2',
     require => User['gerrit2'],
+  }
+
+  exec { 'manage-projects':
+    command     => 'manage-projects',
+    cwd         => '/home/gerrit2',
+    refreshonly => true,
+    require     => User['gerrit2'],
+    user        => 'gerrit2',
   }
 
   $packages = [
