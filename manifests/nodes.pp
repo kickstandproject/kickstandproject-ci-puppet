@@ -10,6 +10,12 @@ node 'jenkins-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::jenkins::init': }
 }
 
+node 'mailman-01-prod.kickstand-project.org' {
+  class { 'kickstandproject::node::mailman::init':
+    password => 'CorrectHorseBatteryStaple',
+  }
+}
+
 node 'precise-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::precise::init': }
 }

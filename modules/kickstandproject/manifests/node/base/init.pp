@@ -27,6 +27,10 @@ class kickstandproject::node::base::init {
   package { $packages:
     ensure => present,
   }
+
+  service { 'exim4':
+    ensure => running,
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
