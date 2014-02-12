@@ -10,6 +10,10 @@ class kickstandproject::node::shell::init {
     stage => 'bootstrap',
   }
 
+  realize (
+    Kickstandproject::Function::Localuser['sliske'],
+  )
+
   $packages = [
     'znc',
   ]
