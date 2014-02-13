@@ -21,6 +21,18 @@ class kickstandproject::node::shell::init {
   package { $packages:
     ensure => present,
   }
+
+  firewall { '6667 accept - znc':
+    action => 'accept',
+    port   => '6667',
+    proto  => 'tcp',
+  }
+
+  firewall { '6668 accept - znc':
+    action => 'accept',
+    port   => '6668',
+    proto  => 'tcp',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
