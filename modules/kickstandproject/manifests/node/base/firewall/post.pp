@@ -7,7 +7,7 @@ class kickstandproject::node::base::firewall::post {
   firewall { '998 drop all':
     action => 'drop',
     before => undef,
-    prot   => 'all',
+    proto  => 'all',
   }
 }
 
