@@ -104,6 +104,18 @@ class kickstandproject::node::mailman::init(
     source  => 'puppet:///modules/kickstandproject/mailman/etc/exim4',
   }
 
+  firewall { '25 accept - sendmail':
+    action => 'accept',
+    port   => '25',
+    proto  => 'tcp',
+  }
+
+  firewall { '80 accept - apache':
+    action => 'accept',
+    port   => '80',
+    proto  => 'tcp',
+  }
+
   maillist { 'kickstand':
     ensure      => present,
     admin       => 'paul.belanger@polybeacon.com',
