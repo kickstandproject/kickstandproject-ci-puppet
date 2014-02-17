@@ -156,6 +156,14 @@ class kickstandproject::node::gerrit::init {
     ensure  => running,
     require => File['/etc/init/gerritbot.conf'],
   }
+
+  cron { 'expireoldreviews':
+    command => 'python /usr/local/bin/expire-old-reviews captpants /home/gerrit2/.ssh/id_rsa',
+    hour    => '6',
+    minute  => '3',
+    require => User['gerrit2'],
+    user    => 'gerrit2',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
