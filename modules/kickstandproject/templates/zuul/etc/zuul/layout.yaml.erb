@@ -56,6 +56,10 @@ pipelines:
     trigger:
       - event: patchset-created
 
+jobs:
+  - name: ^gate-.*-coverage$
+    voting: false
+
 projects:
   - name: kickstandproject/asterisk
     check:
@@ -77,6 +81,7 @@ projects:
 
   - name: kickstandproject/jack
     check:
+      - gate-jack-coverage
       - gate-jack-docs
       - gate-jack-pep8
       - gate-jack-python27
@@ -85,7 +90,6 @@ projects:
       - gate-jack-pep8
       - gate-jack-python27
     post:
-      - jack-coverage
       - jack-branch-tarball
     pre-release:
       - jack-tarball
@@ -140,6 +144,7 @@ projects:
 
   - name: kickstandproject/python-ari
     check:
+      - gate-python-ari-coverage
       - gate-python-ari-docs
       - gate-python-ari-pep8
       - gate-python-ari-python27
@@ -148,7 +153,6 @@ projects:
       - gate-python-ari-pep8
       - gate-python-ari-python27
     post:
-      - python-ari-coverage
       - python-ari-branch-tarball:
         - hook-python-ari-rtfd
     pre-release:
@@ -161,6 +165,7 @@ projects:
 
   - name: kickstandproject/python-payloadclient
     check:
+      - gate-python-payloadclient-coverage
       - gate-python-payloadclient-docs
       - gate-python-payloadclient-pep8
       - gate-python-payloadclient-python27
@@ -169,13 +174,13 @@ projects:
       - gate-python-payloadclient-pep8
       - gate-python-payloadclient-python27
     post:
-      - python-payloadclient-coverage
       - python-payloadclient-branch-tarball
     pre-release:
       - python-payloadclient-tarball
 
   - name: kickstandproject/python-ripcordclient
     check:
+      - gate-python-ripcordclient-coverage
       - gate-python-ripcordclient-docs
       - gate-python-ripcordclient-pep8
       - gate-python-ripcordclient-python27
@@ -184,7 +189,6 @@ projects:
       - gate-python-ripcordclient-pep8
       - gate-python-ripcordclient-python27
     post:
-      - python-ripcordclient-coverage
       - python-ripcordclient-branch-tarball
     pre-release:
       - python-ripcordclient-tarball
@@ -195,6 +199,7 @@ projects:
 
   - name: kickstandproject/ripcord
     check:
+      - gate-ripcord-coverage
       - gate-ripcord-docs
       - gate-ripcord-pep8
       - gate-ripcord-python27
@@ -203,7 +208,6 @@ projects:
       - gate-ripcord-pep8
       - gate-ripcord-python27
     post:
-      - ripcord-coverage
       - ripcord-branch-tarball:
         - hook-ripcord-rtfd
     pre-release:
@@ -216,6 +220,7 @@ projects:
 
   - name: kickstandproject/sarlacc
     check:
+      - gate-sarlacc-coverage
       - gate-sarlacc-docs
       - gate-sarlacc-pep8
       - gate-sarlacc-python27
@@ -224,7 +229,6 @@ projects:
       - gate-sarlacc-pep8
       - gate-sarlacc-python27
     post:
-      - sarlacc-coverage
       - sarlacc-branch-tarball:
         - hook-sarlacc-rtfd
     pre-release:
@@ -233,6 +237,7 @@ projects:
 
   - name: kickstandproject/wildcard
     check:
+      - gate-wildcard-coverage
       - gate-wildcard-docs
       - gate-wildcard-pep8
       - gate-wildcard-python27
@@ -241,7 +246,6 @@ projects:
       - gate-wildcard-pep8
       - gate-wildcard-python27
     post:
-      - wildcard-coverage
       - wildcard-branch-tarball:
         - hook-wildcard-rtfd
     pre-release:
@@ -250,6 +254,7 @@ projects:
 
   - name: kickstandproject/payload
     check:
+      - gate-payload-coverage
       - gate-payload-docs
       - gate-payload-pep8
       - gate-payload-python27
@@ -258,7 +263,6 @@ projects:
       - gate-payload-pep8
       - gate-payload-python27
     post:
-      - payload-coverage
       - payload-branch-tarball:
         - hook-payload-rtfd
     pre-release:
