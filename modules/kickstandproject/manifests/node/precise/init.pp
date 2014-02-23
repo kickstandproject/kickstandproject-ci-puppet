@@ -31,6 +31,7 @@ class kickstandproject::node::precise::init {
   }
 
   $packages = [
+    'libmysqlclient-dev',
     'libxml2-dev',
     'libxslt1-dev',
     'python-dev',
