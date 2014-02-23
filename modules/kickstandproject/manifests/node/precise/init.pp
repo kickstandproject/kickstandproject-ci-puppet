@@ -38,6 +38,7 @@ class kickstandproject::node::precise::init {
     'rake',
     'redis-server',
     'rubygems',
+    'libmysqlclient-dev',
   ]
 
   package { $packages:
