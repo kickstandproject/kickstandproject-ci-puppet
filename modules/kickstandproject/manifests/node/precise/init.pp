@@ -10,6 +10,8 @@ class kickstandproject::node::precise::init {
     stage => 'bootstrap',
   }
 
+  class { 'kickstandproject::node::precise::database': }
+
   class { 'jenkins::client': }
 
   file { '/usr/local/jenkins':
