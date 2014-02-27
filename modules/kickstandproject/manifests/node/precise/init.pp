@@ -33,6 +33,7 @@ class kickstandproject::node::precise::init {
   }
 
   $packages = [
+    'libffi-dev',
     'libmysqlclient-dev',
     'libxml2-dev',
     'libxslt1-dev',
