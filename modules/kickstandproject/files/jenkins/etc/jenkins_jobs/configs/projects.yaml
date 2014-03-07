@@ -122,3 +122,11 @@
     jobs:
       - python-jobs
       - 'hook-{name}-rtfd'
+
+- project:
+    name: grunt
+    github-org: kickstandproject-dev
+    node: precise
+
+    jobs:
+      - gate-noop
