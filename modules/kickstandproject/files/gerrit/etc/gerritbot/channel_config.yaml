@@ -10,5 +10,6 @@ kickstand-dev:
       - kickstandproject/python-ripcordclient
       - kickstandproject/ripcord
       - kickstandproject/wildcard
+      - kickstandproject-dev/grunt
     branches:
       - master
