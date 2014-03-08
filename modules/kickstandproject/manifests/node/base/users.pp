@@ -4,6 +4,12 @@
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::node::base::users {
+  @kickstandproject::function::localuser { 'lmadsen':
+    email    => 'leif@leifmadsen.com',
+    realname => 'Leif Madsen',
+    sshkeys  => "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYEwbUhR2dF584iu6lRtQv64YleT811R0U0gdBbzsSMzOtDA2cOHqAEBOm4jHTA373Q4VYZvE8YIiyA1LJHHm7oOLdTd/lYiYNkr47cE5LDQQLd8J2T0U8Wih2dp6eZrjUHM+SYerqxoP0BXXDseEfOAiaOrrTLwOV+4q+VvCX37CP7978d8trhQVAMzmbsn0GVdog52fU76HdENREU9SuzYft6VVE3jEa9VTjDASDJ65Y8lsal82JeD1eeMQPxmzGJtap4eDWMrN95EWGmcterdNGg0gfxIVjKoK3ij9JdweUEyxOdrZiawT0DkPhWhUIv4aPireSyIu7dvmuqO6/ leif@leifmadsen.com\n",
+  }
+
   @kickstandproject::function::localuser { 'pabelanger':
     email    => 'paul.belanger@polybeacon.com',
     realname => 'Paul Belanger',
