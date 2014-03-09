@@ -19,6 +19,13 @@ class kickstandproject::node::precise::database {
     grant    => ['all'],
     require  => Class['mysql::server'],
   }
+
+  class { 'postgresql::server': }
+
+  postgresql::server::db { 'kickstand_citest':
+    password => postgresql_password('kickstand_citest', 'kickstand_citest'),
+    user     => 'kickstand_citest',
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
