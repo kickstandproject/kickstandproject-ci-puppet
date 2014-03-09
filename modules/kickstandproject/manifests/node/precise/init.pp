@@ -35,6 +35,7 @@ class kickstandproject::node::precise::init {
   $packages = [
     'libffi-dev',
     'libmysqlclient-dev',
+    'libpq-dev',
     'libxml2-dev',
     'libxslt1-dev',
     'python-dev',
