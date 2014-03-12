@@ -24,14 +24,26 @@ class kickstandproject::node::precise::database {
 
   postgresql::server::role { 'kickstand_citest':
     password_hash => postgresql_password('kickstand_citest', 'kickstand_citest'),
-  }->
-  postgresql::server::database { 'kickstand_citest':
-    owner => 'kickstand_citest',
-  }->
-  postgresql::server::database_grant {'kickstand_citest':
-    db        => 'kickstand_citest',
-    privilege => 'ALL',
-    role      => 'kickstand_citest',
+    createdb      => true,
+    superuser     => false,
+    require       => Class['postgresql::server'],
+  }
+
+  postgresql::server::db { 'kickstand_citest':
+    user     => 'kickstand_citest',
+    password => postgresql_password('kickstand_citest', 'kickstand_citest'),
+    grant    => 'all',
+    require  => [
+      Class['postgresql::server'],
+      Postgresql::Server::Role['kickstand_citest'],
+    ],
+  }
+
+  # Alter the new database giving the test DB user ownership of the DB.
+  postgresql_psql { 'ALTER DATABASE kickstand_citest OWNER TO kickstand_citest':
+    db          => 'postgres',
+    refreshonly => true,
+    subscribe   => Postgresql::Server::Db['kickstand_citest'],
   }
 }
 
