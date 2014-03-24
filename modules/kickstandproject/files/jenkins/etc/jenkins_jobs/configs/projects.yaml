@@ -126,7 +126,7 @@
 - project:
     name: grunt
     github-org: kickstandproject-dev
-    node: precise
+    node: grunt-precise
 
     jobs:
       - gate-noop
