@@ -11,7 +11,7 @@ class kickstandproject::node::jenkins::slave::init {
   }
 
   realize (
-    Kickstandproject::Function::Localuser['nodepool']
+    Kickstandproject::Function::Localuser['jenkins']
   )
 
   package { 'openjdk-6-jre':
