@@ -13,6 +13,10 @@ class kickstandproject::node::jenkins::slave::init {
   realize (
     Kickstandproject::Function::Localuser['nodepool']
   )
+
+  package { 'openjdk-6-jre':
+    ensure => present,
+  }
 }
 
 # vim:sw=2:ts=2:expandtab
