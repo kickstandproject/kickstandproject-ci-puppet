@@ -48,8 +48,8 @@ node 'zuul-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::zuul::init': }
 }
 
-# grunt-precise-hpcloud-region-b-1
-node /^grunt-precise-(.*)-\d+$/ {
+# grunt-precise-1395681045
+node /^grunt-precise-\d+$/ {
   class { 'kickstandproject::init': }
 }
 
