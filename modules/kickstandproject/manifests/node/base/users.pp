@@ -1,19 +1,19 @@
 #
-# Copyright (C) 2012-2013, PolyBeacon, Inc.
+# Copyright (C) 2012-2014, PolyBeacon, Inc.
 #
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
 class kickstandproject::node::base::users {
+  @kickstandproject::function::localuser { 'jenkins':
+    email    => 'jenkins@kickstand-project.org',
+    realname => 'Kickstand Project Jenkins',
+    sshkeys  => "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjXspN+qwE/4RK28JBIIMFH2V3f88bfomqYkw0ovJBwZb4TA2E1CpogYvSo1wU6ntkq7oiK9rKExmTp22VhkniW2BnlAatmHpIr7dB4WhOw0WgX6KhnjdfL/jcVIoDB18IfadYBP51f3BVoWv4736XiRke3u/GABsdyMVbATVy4wNgyrPMKqPBqnF6KxwBdvdDA3nNJcNpqbO+OtYOyi67AExSe4PQMEon7zsLq1EoQEuro75w2H7yqkT+GJm1MQMyAgUmkUZq7Olp8H7NsYcWjUaCpDRtqis/UFVnfmCR94jbWPVzIPPa+/ZMVd6ypbvUCBHNUJjKrDrSU5PKs1O9 jenkins@kickstand-project.org\n",
+  }
+
   @kickstandproject::function::localuser { 'lmadsen':
     email    => 'leif@leifmadsen.com',
     realname => 'Leif Madsen',
     sshkeys  => "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYEwbUhR2dF584iu6lRtQv64YleT811R0U0gdBbzsSMzOtDA2cOHqAEBOm4jHTA373Q4VYZvE8YIiyA1LJHHm7oOLdTd/lYiYNkr47cE5LDQQLd8J2T0U8Wih2dp6eZrjUHM+SYerqxoP0BXXDseEfOAiaOrrTLwOV+4q+VvCX37CP7978d8trhQVAMzmbsn0GVdog52fU76HdENREU9SuzYft6VVE3jEa9VTjDASDJ65Y8lsal82JeD1eeMQPxmzGJtap4eDWMrN95EWGmcterdNGg0gfxIVjKoK3ij9JdweUEyxOdrZiawT0DkPhWhUIv4aPireSyIu7dvmuqO6/ leif@leifmadsen.com\n",
-  }
-
-  @kickstandproject::function::localuser { 'nodepool':
-    email    => 'nodepool@kickstand-project.org',
-    realname => 'Kickstand Project Nodepool',
-    sshkeys  => "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIN/1lZ7CGY7Y/PzHJkS6OvITGnt3sWITG/vzmetzTBQ8BM618qX7EVmcQkuX1w0cQVsofrx7b3lVtPUYrcYJMbrzkxfj65dQitxdFljVNOtiBQuG/S8V+k8vtIN3dAJQQOsCnL7Fy2m/MfRg50JjtpGc3UZAeJpAek2FXCXV2syH167mmf9GZUHzhit+dPHrEl/pu8sr4KvNn+2sYqvCrzkr0LqKPpL6nGXekBtxNZl20Fchj1WSx8rVevzpO/zjZTsrtZKeaTPTS6E69RR+2hOtuFih8aqexGqJ71rRJ4bDBB3eOmRYI2ICJlzd8GnI5ff7vT0Xwin00AYsqewaL nodepool@kickstand-project.org\n",
   }
 
   @kickstandproject::function::localuser { 'pabelanger':
