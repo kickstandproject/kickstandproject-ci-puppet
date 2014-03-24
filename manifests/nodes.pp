@@ -48,4 +48,9 @@ node 'zuul-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::zuul::init': }
 }
 
+# grunt-precise-hpcloud-region-b-1 
+node /^grunt-precise-(.*)-\d+$/ {
+  class { 'kickstandproject::init': }
+}
+
 # vim:sw=2:ts=2:expandtab
