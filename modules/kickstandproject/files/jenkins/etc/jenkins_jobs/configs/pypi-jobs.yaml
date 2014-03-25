@@ -3,10 +3,7 @@
 #
 - job-template:
     name: '{name}-pypi-upload'
-    node: precise
-
-    triggers:
-      - zuul-post
+    node: bare-precise
 
     builders:
       - gerrit-git-prep
