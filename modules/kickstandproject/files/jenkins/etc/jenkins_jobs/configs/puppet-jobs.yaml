@@ -4,9 +4,6 @@
 - job-template:
     name: 'gate-{name}-puppet-lint'
 
-    triggers:
-      - zuul
-
     builders:
       - gerrit-git-prep
       - puppet-lint
@@ -17,9 +14,6 @@
 - job-template:
     name: 'gate-{name}-puppet-spec'
 
-    triggers:
-      - zuul
-
     builders:
       - gerrit-git-prep
       - puppet-spec
@@ -29,9 +23,6 @@
 
 - job-template:
     name: 'gate-{name}-puppet-syntax'
-
-    triggers:
-      - zuul
 
     builders:
       - gerrit-git-prep

@@ -34,11 +34,9 @@ class kickstandproject::node::jenkins::init {
     proto  => 'tcp',
   }
 
-  # NOTE(pabelanger): Until we convert jenkin slaves to use SSH, we need to
-  # allow all tcp trafic into the box.  When using HTTP to communicate, the
-  # slaves will connect to a random TCP port.
-  firewall { '998 accept all':
+  firewall { '8888 accept - zeromq':
     action => 'accept',
+    port   => '8888',
     proto  => 'tcp',
   }
 
