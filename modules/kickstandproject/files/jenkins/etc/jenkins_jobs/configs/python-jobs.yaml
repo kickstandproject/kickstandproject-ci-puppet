@@ -4,9 +4,6 @@
 - job-template:
     name: 'gate-{name}-coverage'
 
-    triggers:
-      - zuul
-
     builders:
       - gerrit-git-prep
       - coverage
@@ -16,9 +13,6 @@
 
 - job-template:
     name: 'gate-{name}-pep8'
-
-    triggers:
-      - zuul
 
     builders:
       - gerrit-git-prep
@@ -39,9 +33,6 @@
           description: Label of node to use for this build
           default: '{node}'
 
-    triggers:
-      - zuul
-
     builders:
       - gerrit-git-prep
       - python27
@@ -52,9 +43,6 @@
 - job-template:
     name: 'gate-{name}-docs'
 
-    triggers:
-      - zuul
-
     builders:
       - gerrit-git-prep
       - docs
@@ -64,10 +52,7 @@
 
 - job-template:
     name: '{name}-tarball'
-    node: precise
-
-    triggers:
-      - zuul-post
+    node: bare-precise
 
     builders:
       - gerrit-git-prep
@@ -83,10 +68,7 @@
 - job-template:
     name: '{name}-branch-tarball'
     concurrent: false
-    node: precise
-
-    triggers:
-      - zuul-post
+    node: bare-precise
 
     builders:
       - gerrit-git-prep
