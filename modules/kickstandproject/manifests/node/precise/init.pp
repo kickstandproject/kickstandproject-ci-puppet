@@ -14,15 +14,6 @@ class kickstandproject::node::precise::init {
 
   class { 'jenkins::client': }
 
-  file { '/usr/local/jenkins':
-    ensure  => directory,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0755',
-    recurse => true,
-    source  => 'puppet:///modules/kickstandproject/jenkins/usr/local/jenkins',
-  }
-
   file { '/var/lib/jenkins/.gitconfig':
     ensure  => file,
     group   => 'jenkins',
