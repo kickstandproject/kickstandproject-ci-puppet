@@ -50,7 +50,7 @@ node 'zuul-01-prod.kickstand-project.org' {
 
 # grunt-precise-1395681045
 node /^grunt-precise-\d+$/ {
-  class { 'kickstandproject::node::jenkins::slave::init': }
+  class { 'kickstandproject::node::jenkins::slave::precise::grunt::init': }
 }
 
 # vim:sw=2:ts=2:expandtab
