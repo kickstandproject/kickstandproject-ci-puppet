@@ -3,16 +3,12 @@
 #
 # Paul Belanger <paul.belanger@polybeacon.com>
 #
-class kickstandproject::node::jenkins::slave::init {
-  class { 'kickstandproject::init': }
-
+class kickstandproject::node::jenkins::slave::precise::bootstrap(
+  $stage = 'bootstrap',
+) {
   class { 'kickstandproject::node::jenkins::slave::bootstrap':
-    stage => 'bootstrap',
+    stage = $stage,
   }
-
-  realize (
-    Kickstandproject::Function::Localuser['jenkins']
-  )
 }
 
 # vim:sw=2:ts=2:expandtab
