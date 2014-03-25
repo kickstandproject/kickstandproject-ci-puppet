@@ -4,7 +4,7 @@
 - project:
     name: ci-puppet
     github-org: kickstandproject
-    node: precise
+    node: bare-precise
 
     jobs:
       - puppet-jobs

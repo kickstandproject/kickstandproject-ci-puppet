@@ -4,7 +4,7 @@
 - builder:
     name: gerrit-git-prep
     builders:
-      - shell: "/usr/local/jenkins/slave_scripts/gerrit-git-prep.sh review.kickstand-project.org"
+      - shell: "/usr/local/jenkins/slave_scripts/gerrit-git-prep.sh http://review.kickstand-project.org http://zuul.kickstand-project.org"
 
 - builder:
     name: coverage

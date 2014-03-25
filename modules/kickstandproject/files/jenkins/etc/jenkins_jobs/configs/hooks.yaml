@@ -5,8 +5,5 @@
     name: 'hook-{name}-rtfd'
     node: precise
 
-    triggers:
-      - zuul-post
-
     builders:
     - shell: 'curl -X POST https://readthedocs.org/build/{name} >/dev/null'

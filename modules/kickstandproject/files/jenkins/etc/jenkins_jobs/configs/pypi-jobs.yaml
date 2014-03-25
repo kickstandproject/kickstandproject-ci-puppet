@@ -5,9 +5,6 @@
     name: '{name}-pypi-upload'
     node: precise
 
-    triggers:
-      - zuul-post
-
     builders:
       - gerrit-git-prep
       - shell: |
