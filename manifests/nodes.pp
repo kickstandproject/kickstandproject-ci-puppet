@@ -48,6 +48,11 @@ node 'zuul-01-prod.kickstand-project.org' {
   class { 'kickstandproject::node::zuul::init': }
 }
 
+# bare-precise-1395763088
+node /^bare-precise-\d+$/ {
+  class { 'kickstandproject::node::jenkins::slave::precise::bare::init': }
+}
+
 # grunt-precise-1395681045
 node /^grunt-precise-\d+$/ {
   class { 'kickstandproject::node::jenkins::slave::precise::grunt::init': }
