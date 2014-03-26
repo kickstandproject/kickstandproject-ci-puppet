@@ -1,4 +1,4 @@
 kickstandproject-ci-puppet
 ==========================
 
-$ ./go.sh
+  $ ./go.sh
