@@ -29,7 +29,8 @@ class kickstandproject::node::base::init {
   }
 
   service { 'exim4':
-    ensure => running,
+    ensure  => running,
+    require => Package['exim4'],
   }
 }
 
