@@ -4,12 +4,21 @@ kickstand-dev:
       - change-merged
       - x-vrif-minus-2
     projects:
-      - kickstandproject/kickstandproject-ci-puppet
       - kickstandproject/payload
       - kickstandproject/python-payloadclient
       - kickstandproject/python-ripcordclient
       - kickstandproject/ripcord
       - kickstandproject/wildcard
       - kickstandproject-dev/grunt
+    branches:
+      - master
+
+kickstand-infra:
+    events:
+      - patchset-created
+      - change-merged
+      - x-vrif-minus-2
+    projects:
+      - kickstandproject/kickstandproject-ci-puppet
     branches:
       - master
