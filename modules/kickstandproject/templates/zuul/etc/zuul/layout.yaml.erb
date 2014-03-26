@@ -3,58 +3,77 @@ pipelines:
     description: Newly uploaded patchsets enter this pipeline to receive an initial +/-1 Verified vote from Jenkins.
     failure-message: Build failed.  For information on how to proceed, see http://wiki.kickstand-project.org/GerritJenkinsGithub#Test_Failures
     manager: IndependentPipelineManager
+    precedence: low
     trigger:
-      - event: patchset-created
-      - event: comment-added
-        comment_filter: (?i)^\s*recheck\.?\s*$
+      gerrit:
+        - event: patchset-created
+        - event: comment-added
+          comment_filter: (?i)^\s*recheck\.?\s*$
     success:
-      verified: 1
+      gerrit:
+        verified: 1
     failure:
-      verified: -1
+      gerrit:
+        verified: -1
 
   - name: gate
     description: Changes that have been approved by core developers are enqueued in order in this pipeline, and if they pass tests in Jenkins, will be merged.
     failure-message: Build failed.  For information on how to proceed, see http://wiki.kickstand-project.org/GerritJenkinsGithub#Test_Failures
     manager: DependentPipelineManager
+    precedence: low
     trigger:
-      - event: comment-added
-        approval:
-          - approved: 1
-      - event: comment-added
-        comment_filter: (?i)^\s*reverify\.?\s*$
+      gerrit:
+        - event: comment-added
+          approval:
+            - approved: 1
+        - event: comment-added
+          comment_filter: (?i)^\s*reverify\.?\s*$
     start:
-      verified: 0
+      gerrit:
+        verified: 0
     success:
-      verified: 2
-      submit: true
+      gerrit:
+        verified: 2
+        submit: true
     failure:
-      verified: -2
+      gerrit:
+        verified: -2
 
   - name: post
     description: This pipeline runs jobs that operate after each change is merged.
     manager: IndependentPipelineManager
+    precedence: low
     trigger:
-      - event: ref-updated
-        ref: ^(?!(devnull|refs/.*)).*$
+      gerrit:
+        - event: ref-updated
+          ref: ^(?!(devnull|refs/.*)).*$
 
   - name: pre-release
     description: This pipeline runs jobs on projects in response to pre-release tags.
     manager: IndependentPipelineManager
+    precedence: high
     trigger:
-      - event: ref-updated
-        ref: ^refs/tags/([0-9]+\.)+[0-9]*(alpha|beta|candidate|rc|a|b|c|r)[0-9]*$
+      gerrit:
+        - event: ref-updated
+          ref: ^refs/tags/([0-9]+\.)+[0-9]*(alpha|beta|candidate|rc|a|b|c|r)[0-9]*$
 
   - name: release
     description: When a commit is tagged as a release, this pipeline runs jobs that publish archives and documentation.
     manager: IndependentPipelineManager
+    precedence: high
     trigger:
-      - event: ref-updated
-        ref: ^refs/tags/([0-9]+\.)+[0-9]+$
+      gerrit:
+        - event: ref-updated
+          ref: ^refs/tags/([0-9]+\.)+[0-9]+$
 
   - name: silent
     manager: IndependentPipelineManager
+    precedence: low
     trigger:
-      - event: patchset-created
+      gerrit:
+        - event: patchset-created
+        - event: comment-added
+          comment_filter: (?i)^\s*recheck\.?\s*$
 
 jobs:
   - name: ^gate-.*-coverage$
@@ -136,11 +155,11 @@ projects:
 
   - name: kickstandproject/kickstandproject-ci-puppet
     check:
-      - gate-ci-puppet-puppet-lint
-      - gate-ci-puppet-puppet-syntax
+      - gate-kickstandproject-ci-puppet-puppet-lint
+      - gate-kickstandproject-ci-puppet-puppet-syntax
     gate:
-      - gate-ci-puppet-puppet-lint
-      - gate-ci-puppet-puppet-syntax
+      - gate-kickstandproject-ci-puppet-puppet-lint
+      - gate-kickstandproject-ci-puppet-puppet-syntax
 
   - name: kickstandproject/python-ari
     check:
@@ -271,6 +290,6 @@ projects:
 
   - name: kickstandproject-dev/grunt
     check:
-      - gate-noop
+      - gate-grunt
     gate:
-      - gate-noop
+      - gate-grunt

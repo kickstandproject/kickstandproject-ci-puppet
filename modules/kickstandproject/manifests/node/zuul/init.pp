@@ -16,14 +16,49 @@ class kickstandproject::node::zuul::init {
   }
   class { 'apache::mod::proxy_http': }
 
+  $aliases = [
+    {
+      aliasmatch => '^/p/(.*/objects/[0-9a-f]{2}/[0-9a-f]{38})$',
+      path       => '/var/lib/zuul/git/$1',
+    },
+    {
+      aliasmatch => '^/p/(.*/objects/pack/pack-[0-9a-f]{40}.(pack|idx))$',
+      path       => '/var/lib/zuul/git/$1',
+    },
+  ]
+
+  $scriptaliases = [
+    {
+      alias => '/p/',
+      path  => '/usr/lib/git-core/git-http-backend/',
+    },
+  ]
+
   apache::vhost { 'zuul.kickstand-project.org':
-    docroot      => '/var/www/zuul.kickstand-project.org',
-    port         => '80',
-    rewrite_rule => '/status.json$ http://127.0.0.1:8001/status.json [P]',
+    aliases       => $aliases,
+    docroot       => '/var/www/zuul.kickstand-project.org',
+    port          => '80',
+    rewrite_rule  => '/status.json$ http://127.0.0.1:8001/status.json [P]',
+    setenv        => [
+      'GIT_PROJECT_ROOT /var/lib/zuul/git/',
+      'GIT_HTTP_EXPORT_ALL',
+    ],
+    scriptaliases => $scriptaliases,
   }
 
-  package { 'libjs-jquery':
+  $packages = [
+    'libjs-jquery',
+    'python-pip',
+  ]
+
+  package { $packages:
     ensure => present,
+  }
+
+  package { 'zuul':
+    ensure   => '2.0.0',
+    provider => pip,
+    require  => Package[$packages],
   }
 
   file { '/var/www/zuul.kickstand-project.org/jquery.min.js':
@@ -55,8 +90,7 @@ class kickstandproject::node::zuul::init {
     ensure     => present,
     home       => '/var/lib/zuul',
     managehome => true,
-    shell      => '/bin/false',
-    system     => true,
+    shell      => '/bin/bash',
   }
 
   file { '/etc/zuul':
@@ -100,9 +134,21 @@ class kickstandproject::node::zuul::init {
     require => File['/etc/init/zuul.conf'],
   }
 
+  firewall { '4730 accept - gearman':
+    action => 'accept',
+    port   => '4730',
+    proto  => 'tcp',
+  }
+
   firewall { '8001 accept - zuul':
     action => 'accept',
     port   => '8001',
+    proto  => 'tcp',
+  }
+
+  firewall { '8888 accept - zmq':
+    action => 'accept',
+    port   => '8888',
     proto  => 'tcp',
   }
 
