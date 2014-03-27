@@ -291,9 +291,9 @@ projects:
   - name: kickstandproject-dev/grunt
     check:
       - gate-grunt-puppet-lint
-      - gate-grunt-puppet-syntax
+      - gate-grunt-puppet-syntax:
         - gate-grunt
     gate:
       - gate-grunt-puppet-lint
-      - gate-grunt-puppet-syntax
+      - gate-grunt-puppet-syntax:
         - gate-grunt
