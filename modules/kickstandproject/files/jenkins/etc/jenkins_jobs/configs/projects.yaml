@@ -4,7 +4,6 @@
 - project:
     name: kickstandprojct-ci-puppet
     github-org: kickstandproject
-    node: bare-precise
 
     jobs:
       - puppet-jobs
@@ -21,7 +20,6 @@
 - project:
     name: kickstandproject-asterisk
     github-org: kickstandproject
-    node: bare-precise
 
     jobs:
       - puppet-jobs
@@ -29,7 +27,6 @@
 - project:
     name: kickstandproject-jeepyb
     github-org: kickstandproject
-    node: bare-precise
 
     jobs:
       - puppet-jobs
@@ -37,7 +34,6 @@
 - project:
     name: kickstandproject-pbuilder
     github-org: kickstandproject
-    node: bare-precise
 
     jobs:
       - puppet-jobs
@@ -45,7 +41,6 @@
 - project:
     name: kickstandproject-puppet
     github-org: kickstandproject
-    node: bare-precise
 
     jobs:
       - puppet-jobs
@@ -129,3 +124,4 @@
 
     jobs:
       - grunt-jobs
+      - puppet-jobs

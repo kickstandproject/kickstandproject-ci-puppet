@@ -3,32 +3,29 @@
 #
 - job-template:
     name: 'gate-{name}-puppet-lint'
+    node: 'bare-precise'
 
     builders:
       - gerrit-git-prep
       - puppet-lint
 
-    node: '{node}'
-
 
 - job-template:
     name: 'gate-{name}-puppet-spec'
+    node: 'bare-precise'
 
     builders:
       - gerrit-git-prep
       - puppet-spec
 
-    node: '{node}'
-
 
 - job-template:
     name: 'gate-{name}-puppet-syntax'
+    node: 'bare-precise'
 
     builders:
       - gerrit-git-prep
       - puppet-syntax
-
-    node: '{node}'
 
 
 - job-group:
