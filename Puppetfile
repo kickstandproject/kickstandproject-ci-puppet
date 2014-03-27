@@ -39,7 +39,7 @@ mod 'openstack-infra/vcsrepo',
 
 mod 'puppetlabs/apache',
   :git => 'git://github.com/puppetlabs/puppetlabs-apache.git',
-  :ref => '0.10.0'
+  :ref => '1.0.0'
 
 mod 'puppetlabs/firewall',
   :git => 'git://github.com/puppetlabs/puppetlabs-firewall.git',

@@ -18,14 +18,10 @@ class kickstandproject::node::jenkins::init {
   class { 'apache::mod::proxy_http': }
   class { 'jenkins::server': }
 
-  $proxy_pass = [
-    { 'path' => '/', 'url' => 'http://localhost:8080/' },
-  ]
-
   apache::vhost { 'jenkins.kickstand-project.org':
     docroot    => '/var/www/jenkins.kickstand-project.org',
     port       => '80',
-    proxy_pass => $proxy_pass,
+    proxy_dest => 'http://localhost:8080',
   }
 
   firewall { '80 accept - apache':
