@@ -9,6 +9,8 @@
       - gerrit-git-prep
       - shell: |
           #!/bin/bash -xe
+          export GRUNT_PUPPET_CONFIG_DEBUG=true
+          export GRUNT_PUPPET_CONFIG_COLOR=false
           ./grunt.sh
 
 - job-group:
