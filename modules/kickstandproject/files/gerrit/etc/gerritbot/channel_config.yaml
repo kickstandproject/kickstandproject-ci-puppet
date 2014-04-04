@@ -4,6 +4,7 @@ kickstand-dev:
       - change-merged
       - x-vrif-minus-2
     projects:
+      - kickstandproject/fastdraw
       - kickstandproject/payload
       - kickstandproject/python-payloadclient
       - kickstandproject/python-ripcordclient

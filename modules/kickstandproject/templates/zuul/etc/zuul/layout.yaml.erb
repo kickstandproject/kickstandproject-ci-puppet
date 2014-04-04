@@ -98,6 +98,27 @@ projects:
     gate:
       - gate-noop
 
+  - name: kickstandproject/fastdraw
+    check:
+      - gate-fastdraw-coverage
+      - gate-fastdraw-docs
+      - gate-fastdraw-pep8
+      - gate-fastdraw-python27
+    gate:
+      - gate-fastdraw-docs
+      - gate-fastdraw-pep8
+      - gate-fastdraw-python27
+    post:
+      - fastdraw-branch-tarball:
+        - hook-fastdraw-rtfd
+    pre-release:
+      - fastdraw-tarball:
+        - hook-fastdraw-rtfd
+    release:
+      - fastdraw-tarball:
+        - hook-fastdraw-rtfd
+        - fastdraw-pypi-upload
+
   - name: kickstandproject/jack
     check:
       - gate-jack-coverage
