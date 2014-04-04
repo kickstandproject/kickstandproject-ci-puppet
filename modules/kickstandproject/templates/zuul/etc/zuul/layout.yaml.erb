@@ -1,3 +1,6 @@
+includes:
+  - python-file: openstack_functions.py
+
 pipelines:
   - name: check
     description: Newly uploaded patchsets enter this pipeline to receive an initial +/-1 Verified vote from Jenkins.
@@ -76,6 +79,8 @@ pipelines:
           comment_filter: (?i)^\s*recheck\.?\s*$
 
 jobs:
+  - name: ^.*$
+      parameter-function: single_use_node
   - name: ^gate-.*-coverage$
     voting: false
 

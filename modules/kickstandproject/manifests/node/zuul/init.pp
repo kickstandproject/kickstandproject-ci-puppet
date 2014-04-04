@@ -103,10 +103,11 @@ class kickstandproject::node::zuul::init {
     ensure  => directory,
     group   => 'zuul',
     mode    => '0750',
+    notify  => Service['zuul'],
     owner   => 'zuul',
     recurse => true,
-    source  => 'puppet:///modules/kickstandproject/zuul/etc/zuul',
     require => User['zuul'],
+    source  => 'puppet:///modules/kickstandproject/zuul/etc/zuul',
   }
 
   file { '/etc/zuul/layout.yaml':
