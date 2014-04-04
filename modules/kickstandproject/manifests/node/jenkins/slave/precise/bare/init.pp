@@ -11,11 +11,19 @@ class kickstandproject::node::jenkins::slave::precise::bare::init {
   }
 
   $packages = [
+    'python-dev',
+    'python-pip',
     'rubygems',
   ]
 
   package { $packages:
     ensure => present,
+  }
+
+  package { 'tox':
+    ensure   => '1.6.1',
+    provider => pip,
+    require  => Package['python-pip'],
   }
 
   $gem_packages = [
