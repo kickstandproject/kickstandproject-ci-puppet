@@ -66,4 +66,5 @@ mod 'puppetlabs/stdlib',
   :ref => '4.1.0'
 
 mod 'ripienaar/concat',
-  :git => 'git://github.com/ripienaar/puppet-concat.git'
+  :git => 'git://github.com/ripienaar/puppet-concat.git',
+  :ref => '1.0.2'

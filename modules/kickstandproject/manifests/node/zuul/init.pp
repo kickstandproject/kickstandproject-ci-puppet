@@ -27,6 +27,12 @@ class kickstandproject::node::zuul::init {
     },
   ]
 
+  $rewrites = [
+    {
+      'rewrite_rule' => '/status.json$ http://127.0.0.1:8001/status.json [P]',
+    },
+  ]
+
   $scriptaliases = [
     {
       alias => '/p/',
@@ -38,7 +44,7 @@ class kickstandproject::node::zuul::init {
     aliases       => $aliases,
     docroot       => '/var/www/zuul.kickstand-project.org',
     port          => '80',
-    rewrite_rule  => '/status.json$ http://127.0.0.1:8001/status.json [P]',
+    rewrites      => $rewrites,
     setenv        => [
       'GIT_PROJECT_ROOT /var/lib/zuul/git/',
       'GIT_HTTP_EXPORT_ALL',
