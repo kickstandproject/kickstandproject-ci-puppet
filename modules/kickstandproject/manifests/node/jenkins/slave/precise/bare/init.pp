@@ -10,7 +10,11 @@ class kickstandproject::node::jenkins::slave::precise::bare::init {
     stage => 'bootstrap',
   }
 
+  class { 'kickstandproject::node::jenkins::slave::precise::database': }
+
   $packages = [
+    'libmysqlclient-dev',
+    'libpq-dev',
     'python-dev',
     'python-pip',
     'rubygems',
