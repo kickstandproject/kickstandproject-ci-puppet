@@ -9,6 +9,7 @@ class kickstandproject::node::base::init {
   }
 
   class { 'kickstandproject::node::base::config': }
+  class { 'kickstandproject::node::base::swap': }
 
   class { 'firewall': }
   include firewall::post
