@@ -19,6 +19,13 @@
       - shell: "set -o pipefail ; tox -v -edocs | tee sphinx.txt ; set +o pipefail"
 
 - builder:
+    name: grunt-checkout
+    builders:
+      - shell: |
+          #!/bin/bash -xe
+          git clone https://github.com/kickstandproject-dev/grunt.git
+
+- builder:
     name: pep8
     builders:
       - shell: "set -o pipefail ; tox -v -epep8 | tee pep8.txt ; set +o pipefail"
