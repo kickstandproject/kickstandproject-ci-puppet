@@ -11,5 +11,7 @@
           #!/bin/bash -xe
           export GRUNT_PUPPET_CONFIG_DEBUG=true
           export GRUNT_PUPPET_CONFIG_COLOR=false
+          export FACTER_ripcord_repo=$ZUUL_URL/$ZUUL_PROJECT
+          export FACTER_ripcord_branch=$ZUUL_COMMIT
           cd grunt
           ./grunt.sh
