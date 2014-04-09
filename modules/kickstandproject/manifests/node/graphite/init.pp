@@ -11,6 +11,7 @@ class kickstandproject::node::graphite::init {
   }
 
   $packages = [
+    'libcairo2-dev',
     'nodejs',
     'python-cairo',
     'python-dev',
@@ -133,7 +134,8 @@ class kickstandproject::node::graphite::init {
   vcsrepo { '/opt/graphite-web':
     ensure   => latest,
     provider => git,
-    revision => '0.9.x',
+    # pin version because of https://github.com/graphite-project/graphite-web/issues/650
+    revision => '7f8c33da809e2938df55c1ff57ab5329d8d7b878',
     source   => 'https://github.com/graphite-project/graphite-web.git',
   }
 
@@ -178,6 +180,14 @@ class kickstandproject::node::graphite::init {
     subscribe   => Vcsrepo['/opt/whisper'],
   }
 
+  file { '/etc/init.d/carbon-cache':
+    ensure => file,
+    group  => 'root',
+    mode   => '0555',
+    owner  => 'root',
+    source => 'puppet:///modules/kickstandproject/graphite/etc/init.d/carbon-cache',
+  }
+
   file { '/etc/init/statsd.conf':
     ensure => file,
     group  => 'root',
@@ -189,6 +199,18 @@ class kickstandproject::node::graphite::init {
   service { 'statsd':
     ensure  => running,
     require => File['/etc/init/statsd.conf'],
+  }
+
+  firewall { '80 accept - apache':
+    action => 'accept',
+    port   => '80',
+    proto  => 'tcp',
+  }
+
+  firewall { '8125 accept - statsd':
+    action => 'accept',
+    port   => '8125',
+    proto  => 'udp',
   }
 }
 
