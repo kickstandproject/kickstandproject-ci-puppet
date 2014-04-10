@@ -121,24 +121,24 @@ class kickstandproject::node::zuul::init {
     ensure => file,
     group  => 'root',
     mode   => '0644',
-    notify => File['/etc/init/zuul.conf'],
+    notify => Service['zuul'],
     owner  => 'root',
     source => 'puppet:///modules/kickstandproject/zuul/etc/default/zuul',
   }
 
-  file { '/etc/init/zuul.conf':
+  file { '/etc/init.d/zuul':
     ensure  => file,
     group   => 'root',
-    mode    => '0644',
+    mode    => '0755',
     notify  => Service['zuul'],
     owner   => 'root',
     require => File['/etc/default/zuul'],
-    source  => 'puppet:///modules/kickstandproject/zuul/etc/init/zuul.conf',
+    source  => 'puppet:///modules/kickstandproject/zuul/etc/init.d/zuul',
   }
 
   service { 'zuul':
     ensure  => running,
-    require => File['/etc/init/zuul.conf'],
+    require => File['/etc/init.d/zuul'],
   }
 
   firewall { '4730 accept - gearman':
