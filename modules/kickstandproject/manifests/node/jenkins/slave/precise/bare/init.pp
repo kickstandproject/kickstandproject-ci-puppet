@@ -15,6 +15,8 @@ class kickstandproject::node::jenkins::slave::precise::bare::init {
   $packages = [
     'libmysqlclient-dev',
     'libpq-dev',
+    'libxml2-dev',
+    'libxslt1-dev',
     'python-dev',
     'python-pip',
     'rubygems',
