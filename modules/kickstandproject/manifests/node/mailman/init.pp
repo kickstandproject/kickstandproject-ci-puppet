@@ -84,13 +84,20 @@ class kickstandproject::node::mailman::init(
     },
   ]
 
+  $rewrites = [
+    {
+      'rewrite_rule' => '^/$ /cgi-bin/mailman/listinfo [R]',
+    },
+  ]
+
+
   apache::vhost { $domain:
     aliases      => $aliases,
     directories  => $directories,
     docroot      => "/var/www/${domain}",
     port         => '80',
-    rewrite_rule => '^/$ /cgi-bin/mailman/listinfo [R]',
-    scriptalias  => '/usr/lib/cgi-bin',
+    rewrites     => $rewrites,
+    scriptalias  => '/usr/lib/cgi-bin/',
   }
 
   file { '/etc/exim4':
