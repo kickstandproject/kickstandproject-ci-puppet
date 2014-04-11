@@ -91,6 +91,7 @@
     name: python-jobs
     jobs:
       - 'gate-{name}-coverage'
+      - 'gate-{name}-grunt'
       - 'gate-{name}-pep8'
       - 'gate-{name}-python27'
       - 'gate-{name}-docs'
