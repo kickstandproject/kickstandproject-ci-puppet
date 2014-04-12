@@ -13,6 +13,7 @@ class kickstandproject::node::jenkins::slave::precise::bare::init {
   class { 'kickstandproject::node::jenkins::slave::precise::bare::database': }
 
   $packages = [
+    'libffi-dev',
     'libmysqlclient-dev',
     'libpq-dev',
     'libxml2-dev',
