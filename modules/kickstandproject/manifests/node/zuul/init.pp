@@ -99,6 +99,15 @@ class kickstandproject::node::zuul::init {
     shell      => '/bin/bash',
   }
 
+  file { '/var/log/zuul':
+    ensure  => directory,
+    group   => 'zuul',
+    mode    => '0644',
+    notify  => Service['zuul'],
+    owner   => 'zuul',
+    require => User['zuul'],
+  }
+
   file { '/etc/zuul':
     ensure  => directory,
     group   => 'zuul',
