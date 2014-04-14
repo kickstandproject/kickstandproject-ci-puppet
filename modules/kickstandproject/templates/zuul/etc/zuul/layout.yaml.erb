@@ -331,3 +331,11 @@ projects:
       - gate-grunt-puppet-lint
       - gate-grunt-puppet-syntax:
         - gate-grunt
+
+  - name: kickstandproject-infra/kickstandproject-apt
+    check:
+      - gate-kickstandproject-apt-puppet-lint
+      - gate-kickstandproject-apt-puppet-syntax
+    gate:
+      - gate-kickstandproject-apt-puppet-lint
+      - gate-kickstandproject-apt-puppet-syntax
