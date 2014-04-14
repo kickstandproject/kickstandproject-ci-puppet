@@ -21,5 +21,6 @@ kickstand-infra:
       - x-vrif-minus-2
     projects:
       - kickstandproject/kickstandproject-ci-puppet
+      - kickstandproject-infra/kickstandproject-apt
     branches:
       - master

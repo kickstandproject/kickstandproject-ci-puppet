@@ -29,6 +29,13 @@
       - python-jobs
 
 - project:
+    name: kickstandproject-apt
+    github-org: kickstandproject-infra
+
+    jobs:
+      - puppet-jobs
+
+- project:
     name: kickstandproject-asterisk
     github-org: kickstandproject
 
