@@ -93,6 +93,29 @@ projects:
     gate:
       - gate-noop
 
+  - name: kickstandproject/backblast
+    check:
+      - gate-backblast-coverage
+      - gate-backblast-docs
+      - gate-backblast-grunt
+      - gate-backblast-pep8
+      - gate-backblast-python27
+    gate:
+      - gate-backblast-docs
+      - gate-backblast-grunt
+      - gate-backblast-pep8
+      - gate-backblast-python27
+    post:
+      - backblast-branch-tarball:
+        - hook-backblast-rtfd
+    pre-release:
+      - backblast-tarball:
+        - hook-backblast-rtfd
+    release:
+      - backblast-tarball:
+        - hook-backblast-rtfd
+        - backblast-pypi-upload
+
   - name: kickstandproject/dahdi-linux
     check:
       - gate-noop
