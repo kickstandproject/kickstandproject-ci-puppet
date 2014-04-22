@@ -347,13 +347,13 @@ projects:
 
   - name: kickstandproject-dev/grunt
     check:
-      - gate-grunt-puppet-lint
       - gate-grunt-puppet-syntax:
         - gate-grunt
+      - gate-grunt-puppet-lint
     gate:
-      - gate-grunt-puppet-lint
       - gate-grunt-puppet-syntax:
         - gate-grunt
+      - gate-grunt-puppet-lint
 
   - name: kickstandproject-infra/kickstandproject-apt
     check:
