@@ -146,6 +146,7 @@
 
     jobs:
       - python-jobs
+      - gate-payload-grunt
       - 'hook-{name}-rtfd'
 
 - project:
