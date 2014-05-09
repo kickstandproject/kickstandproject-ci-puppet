@@ -350,11 +350,13 @@ projects:
   - name: kickstandproject-dev/grunt
     check:
       - gate-grunt-puppet-syntax:
-        - gate-grunt
+        - gate-grunt-mysql
+        - gate-grunt-postgresql
       - gate-grunt-puppet-lint
     gate:
       - gate-grunt-puppet-syntax:
-        - gate-grunt
+        - gate-grunt-mysql
+        - gate-grunt-postgresql
       - gate-grunt-puppet-lint
 
   - name: kickstandproject-infra/kickstandproject-apt
