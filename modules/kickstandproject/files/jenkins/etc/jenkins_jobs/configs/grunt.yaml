@@ -16,5 +16,8 @@
 
 - job-group:
     name: grunt-jobs
+    database:
+      - mysql
+      - postgresql
     jobs:
-      - 'gate-grunt'
+      - 'gate-grunt-{database}'
