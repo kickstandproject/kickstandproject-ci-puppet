@@ -24,7 +24,7 @@
       - 'hook-{name}-rtfd'
 
 - project:
-    name: kickstandprojct-ci-puppet
+    name: kickstandproject-ci-puppet
     github-org: kickstandproject
 
     jobs:
@@ -115,7 +115,7 @@
     jobs:
       - python-jobs
       - pypi-jobs
-      - gate-ripcord-grunt
+      - 'gate-{name}-grunt'
       - 'hook-{name}-rtfd'
 
 - project:
@@ -146,7 +146,7 @@
 
     jobs:
       - python-jobs
-      - gate-payload-grunt
+      - 'gate-{name}-grunt'
       - 'hook-{name}-rtfd'
 
 - project:
