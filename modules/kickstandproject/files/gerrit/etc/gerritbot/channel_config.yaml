@@ -7,6 +7,7 @@ kickstand-dev:
       - kickstandproject/backblast
       - kickstandproject/fastdraw
       - kickstandproject/payload
+      - kickstandproject/payload-voice
       - kickstandproject/python-payloadclient
       - kickstandproject/python-ripcordclient
       - kickstandproject/ripcord
