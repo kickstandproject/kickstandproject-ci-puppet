@@ -347,6 +347,23 @@ projects:
       - payload-tarball:
         - hook-payload-rtfd
 
+  - name: kickstandproject/payload-voice
+    check:
+      - gate-payload-voice-coverage
+      - gate-payload-voice-docs
+      - gate-payload-voice-pep8
+      - gate-payload-voice-python27
+    gate:
+      - gate-payload-voice-docs
+      - gate-payload-voice-pep8
+      - gate-payload-voice-python27
+    post:
+      - payload-voice-branch-tarball:
+        - hook-payload-voice-rtfd
+    pre-release:
+      - payload-voice-tarball:
+        - hook-payload-voice-rtfd
+
   - name: kickstandproject-dev/grunt
     check:
       - gate-grunt-puppet-syntax:
