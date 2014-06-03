@@ -214,6 +214,27 @@ projects:
       - gate-kickstandproject-ci-puppet-puppet-lint
       - gate-kickstandproject-ci-puppet-puppet-syntax
 
+  - name: kickstandproject/python-ami
+    check:
+      - gate-python-ami-coverage
+      - gate-python-ami-docs
+      - gate-python-ami-pep8
+      - gate-python-ami-python27
+    gate:
+      - gate-python-ami-docs
+      - gate-python-ami-pep8
+      - gate-python-ami-python27
+    post:
+      - python-ami-branch-tarball:
+        - hook-python-ami-rtfd
+    pre-release:
+      - python-ami-tarball:
+        - hook-python-ami-rtfd
+    release:
+      - python-ami-tarball:
+        - hook-python-ami-rtfd
+        - python-ami-pypi-upload
+
   - name: kickstandproject/python-ari
     check:
       - gate-python-ari-coverage

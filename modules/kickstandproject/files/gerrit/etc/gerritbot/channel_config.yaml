@@ -8,6 +8,7 @@ kickstand-dev:
       - kickstandproject/fastdraw
       - kickstandproject/payload
       - kickstandproject/payload-voice
+      - kickstandproject/python-ami
       - kickstandproject/python-payloadclient
       - kickstandproject/python-ripcordclient
       - kickstandproject/ripcord
