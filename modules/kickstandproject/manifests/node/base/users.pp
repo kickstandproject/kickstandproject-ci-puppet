@@ -25,7 +25,7 @@ class kickstandproject::node::base::users {
 @kickstandproject::function::localuser { 'sliske':
     email    => 'sarah.liske@polybeacon.com',
     realname => 'Sarah Liske',
-    sshkeys  => "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeS01XbdIviWJxreshiBnyVfHWvGo2Wtb+BGS1rPgi5lE7/ciUTCBHdcdECZ2FvziPnLibHwvoMOpqtVw2ZigBQE877WAtCPICgtQFSApj482cdBYGtmyIlgzBgc8ZXe6QmZCYAWLnaXGFch+BnIXgQjo4OagkjoNqgbQvWAwqBfzUgwP7mgWPT0fmunHQ2UvtLBm3nSNpWSrJedeRlPuSuxE5hP+mYZ77PmqgxKVCyUR/uYFMx2YvM4AS3wIoOb8YLw9T13iIEHw1ws5zO4nvHkzhUvwF5Uw5sFpe8jM25pXgZni+kbxiYE9+XFBSWIefMZ4BUQp+Dm/OaKYSNZAV sarah.liske@polybeacon.com\n",
+    sshkeys  => '',
   }
 }
 
