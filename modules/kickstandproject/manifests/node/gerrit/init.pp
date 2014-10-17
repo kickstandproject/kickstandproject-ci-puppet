@@ -145,11 +145,11 @@ class kickstandproject::node::gerrit::init {
   }
 
   file { '/etc/init/gerritbot.conf':
-    ensure  => file,
-    group   => 'root',
-    mode    => '0755',
-    owner   => 'root',
-    source  => 'puppet:///modules/kickstandproject/gerrit/etc/init/gerritbot.conf',
+    ensure => file,
+    group  => 'root',
+    mode   => '0755',
+    owner  => 'root',
+    source => 'puppet:///modules/kickstandproject/gerrit/etc/init/gerritbot.conf',
   }
 
   service { 'gerritbot':

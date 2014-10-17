@@ -92,12 +92,12 @@ class kickstandproject::node::mailman::init(
 
 
   apache::vhost { $domain:
-    aliases      => $aliases,
-    directories  => $directories,
-    docroot      => "/var/www/${domain}",
-    port         => '80',
-    rewrites     => $rewrites,
-    scriptalias  => '/usr/lib/cgi-bin/',
+    aliases     => $aliases,
+    directories => $directories,
+    docroot     => "/var/www/${domain}",
+    port        => '80',
+    rewrites    => $rewrites,
+    scriptalias => '/usr/lib/cgi-bin/',
   }
 
   file { '/etc/exim4':

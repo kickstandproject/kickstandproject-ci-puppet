@@ -1,3 +1,8 @@
+#
+# Copyright (C) 2012-2014 PolyBeacon, Inc.
+#
+# Paul Belanger <paul.belanger@polybeacon.com>
+#
 define kickstandproject::function::localuser(
   $email,
   $realname,

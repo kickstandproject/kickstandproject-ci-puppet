@@ -6,9 +6,9 @@
 class kickstandproject::node::precise::database {
   class { 'mysql::server':
     config_hash => {
-      'root_password' => 'secret',
-      'default_engine'=> 'MyISAM',
-      'bind_address'  => '127.0.0.1',
+      'root_password'  => 'secret',
+      'default_engine' => 'MyISAM',
+      'bind_address'   => '127.0.0.1',
     },
   }
 
