@@ -20,6 +20,7 @@ class kickstandproject::node::jenkins::slave::precise::bare::init {
     'libxslt1-dev',
     'python-dev',
     'python-pip',
+    'rabbitmq-server',
     'redis-server',
     'rubygems',
   ]
